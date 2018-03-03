@@ -62,9 +62,9 @@ public class MainActivity extends AppCompatActivity
     private void initData(){
         data=new ArrayList<>();
         Log.d("test1","vào init data");
-        data.add(new Data("Minh Vương","Ngô Thì Nhậm",R.drawable.room1));
-        data.add(new Data("Hữu Nghĩa","Hồ Tùng Mậu",R.drawable.room2));
-        data.add(new Data("Tấn Nam","Quận Hải Châu",R.drawable.room3));
+        data.add(new Data("Minh Vương","số 50,đường Ngô Thì Nhậm,quận Liên Chiểu,tp Đà Nẵng",R.drawable.room1));
+        data.add(new Data("Hữu Nghĩa","đường Hồ Tùng Mậu,quận Liên Chiểu,tp Đà Nẵng",R.drawable.room2));
+        data.add(new Data("Tấn Nam","quận Hải Châu,tp Đà Nẵng",R.drawable.room3));
         Log.d("test2","set data thành công");
     }
 

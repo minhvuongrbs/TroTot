@@ -56,6 +56,7 @@ public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.Recycl
             address=itemView.findViewById(R.id.address);
             image_room=itemView.findViewById(R.id.image_room);
         }
+
     }
 }
 
