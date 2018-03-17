@@ -5,4 +5,13 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    //String Dung
+    <string name="login">Log In</string>
+    <string name="email">Email</string>
+    <string name="passowrd">Password</string>
+    <string name="show_pwd">Show password</string>
+    <string name="forgot">I forgot my password!</string>
+    <string name="newUser">I dont have an account. Sign up now!</string>
+    //end Dung
 </resources>

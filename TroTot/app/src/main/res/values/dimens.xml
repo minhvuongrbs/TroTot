@@ -8,4 +8,8 @@
 
     <!--post for boss-->
     <dimen name="margin_button_post">50dp</dimen>
+
+    //dung
+    <dimen name="middle_size">16dp</dimen>
+    //end dung
 </resources>
