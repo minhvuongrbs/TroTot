@@ -3,6 +3,9 @@ package trotot.dnvn.cndd.trotot;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity
 
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(mAdapter);
+        PostDetail();
         Log.d("test3","chạy hết create");
     }
     private void initData(){
@@ -127,6 +131,22 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    ViewPager pager;
+    TabLayout tabLayout;
+    public void PostDetail() {
+        pager= (ViewPager) findViewById(R.id.view_pager);
+        tabLayout= (TabLayout) findViewById(R.id.tab_layout);
+        FragmentManager manager=getSupportFragmentManager();
+        TabPostDetail adapter = new TabPostDetail(manager);
+        pager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(pager);
+        pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setTabsFromPagerAdapter(adapter);
+        setTabPostIcons();
+    }
+    private void setTabPostIcons(){
     }
 
 }

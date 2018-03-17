@@ -23,10 +23,12 @@
             android:id="@+id/nav_manage"
             android:icon="@drawable/manage"
             android:title="Quản lý trọ" />
+
     </group>
 
     <item android:title="Communicate">
         <menu>
+
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
