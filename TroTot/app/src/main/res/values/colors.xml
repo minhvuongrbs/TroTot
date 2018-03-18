@@ -6,4 +6,8 @@
 
     <!--post for boss-->
     <color name="button_post">#CC1D1D</color>
+
+    <!--color theme-->
+    <color name="border">#D1BB93</color>
+    <color name="background">#FF7B6133</color>
 </resources>
