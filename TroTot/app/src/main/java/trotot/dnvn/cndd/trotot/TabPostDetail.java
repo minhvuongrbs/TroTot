@@ -5,8 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 public class TabPostDetail extends FragmentStatePagerAdapter {
-    public TabPostDetail(FragmentManager fm){
+    int mNumOfTabs;
+    public TabPostDetail(FragmentManager fm, int NumOfTabs){
         super(fm);
+        this.mNumOfTabs = NumOfTabs;
     }
 
     @Override
@@ -29,7 +31,7 @@ public class TabPostDetail extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return mNumOfTabs;
     }
     @Nullable
     @Override

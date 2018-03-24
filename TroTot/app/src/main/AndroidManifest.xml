@@ -21,10 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity android:name=".fragment_post_detail_first" />-->
-        <!--<activity android:name=".fragment_post_detail_second" />-->
-        <!--<activity android:name=".fragment_post_detail_third" />-->
-        <!--<activity android:name=".TabPostDetail"></activity>-->
+        <!-- <activity android:name=".fragment_post_detail_first" /> -->
+        <!-- <activity android:name=".fragment_post_detail_second" /> -->
+        <!-- <activity android:name=".fragment_post_detail_third" /> -->
+        <!-- <activity android:name=".TabPostDetail"></activity> -->
+        <activity android:name=".PostDetail"></activity>
     </application>
 
 </manifest>

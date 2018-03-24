@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="trotot.dnvn.cndd.trotot.fragment_post_detail_second">
+    tools:context="trotot.dnvn.cndd.trotot.PostDetail">
 
 </android.support.constraint.ConstraintLayout>
