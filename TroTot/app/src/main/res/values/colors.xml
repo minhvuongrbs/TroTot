@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#56AB50</color>
+    <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#FF4081</color>
 
     <!--post for boss-->
@@ -15,8 +15,8 @@
 
 
     <!--phần của Dung.-->
-    <color name="background"></color>
-    <!--<color name="button">#1AFF1A</color>-->
+    <!--<color name="background"></color>-->
+    <color name="title">#000</color>
     <color name="button">#1aff1a</color>
 
 </resources>
