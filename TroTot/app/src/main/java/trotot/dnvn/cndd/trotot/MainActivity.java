@@ -1,5 +1,6 @@
 package trotot.dnvn.cndd.trotot;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,14 +27,26 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView.Adapter mAdapter;
 
     private List<Data> data;
+    private int check=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent =getIntent();
+        check=intent.getIntExtra("check auth",0);
+        if (!checkAuth()){
+            Log.d("log","checkauth");
+            Intent checkLogin;
+            checkLogin=new Intent(getApplicationContext(),LoginActivity.class);
+            startActivity(checkLogin);
+        }
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        try{
+            setSupportActionBar(toolbar);
+        }catch (Exception e){
+        }
+        Log.d("log"," test bug2");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -59,12 +72,20 @@ public class MainActivity extends AppCompatActivity
         mRecyclerView.setAdapter(mAdapter);
         Log.d("test3","chạy hết create");
     }
+
+    private boolean checkAuth() {
+        Log.d("log","check"+check);
+        if (check==0)
+        return false;
+        else return true;
+    }
+
     private void initData(){
         data=new ArrayList<>();
         Log.d("test1","vào init data");
-        data.add(new Data("Minh Vương","số 50,đường Ngô Thì Nhậm,quận Liên Chiểu,tp Đà Nẵng",R.drawable.room1));
-        data.add(new Data("Hữu Nghĩa","đường Hồ Tùng Mậu,quận Liên Chiểu,tp Đà Nẵng",R.drawable.room2));
-        data.add(new Data("Tấn Nam","quận Hải Châu,tp Đà Nẵng",R.drawable.room3));
+        data.add(new Data("Minh Vương","số 50,đường Ngô Thì Nhậm,quận Liên Chiểu,tp Đà Nẵng",R.drawable.room1,R.drawable.user,"12/3/2018"));
+        data.add(new Data("Hữu Nghĩa","đường Hồ Tùng Mậu,quận Liên Chiểu,tp Đà Nẵng",R.drawable.room2,R.drawable.user,"12/3/2018"));
+        data.add(new Data("Tấn Nam","quận Hải Châu,tp Đà Nẵng",R.drawable.room3,R.drawable.user,"12/3/2018"));
         Log.d("test2","set data thành công");
     }
 

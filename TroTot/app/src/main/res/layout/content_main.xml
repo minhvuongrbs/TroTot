@@ -47,7 +47,7 @@
                 android:textSize="20dp"
                 android:hint="Bạn có phòng cho thuê?"
                 android:layout_width="match_parent"
-                android:layout_height="80dp" />
+                android:layout_height="40dp" />
             <Button
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="@dimen/margin_button_post"
