@@ -4,7 +4,7 @@
 
     <!-- Set màu nền-->
     <solid
-        android:color="@color/button" >
+        android:color="#1AFF1A" >
     </solid>
 
     <!-- và đây là bán kính đường tròn ở 4 góc -->

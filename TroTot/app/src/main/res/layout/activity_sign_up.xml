@@ -113,8 +113,7 @@
         android:padding="10dp"
         android:singleLine="true"
         android:textSize="16sp" />
-
-
+    
     <Button
         android:textAllCaps="false"
         android:id="@+id/loginBtn"
