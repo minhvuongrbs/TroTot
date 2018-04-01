@@ -5,4 +5,36 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="title">TRỌ TỐT</string>
+    <string name="tt_login">LOG IN</string>
+    <string name="tt_signup">SIGN UP</string>
+    <string name="hint_user">User Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Phone number</string>
+    <string name="hint_pass">Password</string>
+    <string name="hint_login">Log In</string>
+    <string name="hint_signup">Sign Up</string>
+    <string name="hint_cancel">Cancel</string>
+    <string name="sign_up">Create a new account?</string>
+    <string name="sign_in">I have an account !</string>
+    <string name="hint_repassword">Reset password</string>
+
+    //String Dung
+    <string name="signup">Sign Up</string>
+    <string name="username">User Name</string>
+    <string name="phone">Phone Number</string>
+    <string name="address">Address</string>
+    <string name="login">Log In</string>
+    <string name="email">Email</string>
+    <string name="passowrd">Password</string>
+    <string name="repassword">Confirm Password</string>
+    <string name="remember_password">Remember me</string>
+    <string name="forgot">I forgot my password!</string>
+    <string name="already_user">I have an account. Log In now!</string>
+    <string name="newUser">I dont have an account. Sign up now!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    //end Dung
 </resources>

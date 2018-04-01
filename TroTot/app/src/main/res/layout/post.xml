@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginBottom="15dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    >
 
     <LinearLayout
         android:background="@drawable/vien"
@@ -9,25 +13,77 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/user"
+                android:id="@+id/image_profile"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="Trần Văn Minh Vương"
+                    android:textColor="#000"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"/>
+               <LinearLayout
+                   android:weightSum="100"
+                   android:orientation="horizontal"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+                   <TextView
+                       android:layout_weight="30"
+                       android:layout_marginLeft="20dp"
+                       android:textColor="#000"
+                       android:text="Ngày đăng:"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content" />
+                   <TextView
+                       android:id="@+id/time_post"
+                       android:textColor="#000"
+                       android:text="18/3/2018"
+                       android:layout_weight="70"
+                       android:layout_width="0dp"
+                       android:layout_height="wrap_content" />
+               </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
         <TextView
+            android:text="Số 50 Ngô Thì Nhậm,quận Liên Chiểu,tp Đà Nẵng"
             android:textColor="#000"
-            android:layout_marginLeft="50dp"
-            android:id="@+id/user_name"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:maxLines="1"
+            android:layout_marginLeft="10dp"
+            android:textColor="#000"
+            android:text="cho thuê phòng 2 người,điện nước đầy đủ,wifi đã có,trọ có 10 phòng"
+            android:id="@+id/caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="xem thêm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <ImageView
+            android:scaleType="fitXY"
+            android:src="@drawable/room1"
             android:id="@+id/image_room"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:background="#4dff4d"
-            android:textColor="#000"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="180dp" />
     </LinearLayout>
 </LinearLayout>

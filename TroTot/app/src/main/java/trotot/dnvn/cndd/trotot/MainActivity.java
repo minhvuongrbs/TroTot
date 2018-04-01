@@ -1,8 +1,11 @@
 package trotot.dnvn.cndd.trotot;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,18 +25,27 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
 
-    private List<Data> data;
+    private int check=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent =getIntent();
+        check=intent.getIntExtra("check auth",0);
+        if (!checkAuth()){
+            Log.d("log","checkauth");
+            Intent checkLogin;
+            checkLogin=new Intent(getApplicationContext(),LoginActivity.class);
+            startActivity(checkLogin);
+        }
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        try{
+            setSupportActionBar(toolbar);
+        }catch (Exception e){
+        }
+        Log.d("log"," test bug2");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -43,30 +55,19 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        //    recycler view for post
-        mRecyclerView=(RecyclerView) findViewById(R.id.post);
-
-        initData();
-
-        mAdapter=new PostViewAdapter(data);
+        displayNavigation(R.id.nav_home);
 
 
-        LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
-        mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setAdapter(mAdapter);
         Log.d("test3","chạy hết create");
     }
-    private void initData(){
-        data=new ArrayList<>();
-        Log.d("test1","vào init data");
-        data.add(new Data("Minh Vương","số 50,đường Ngô Thì Nhậm,quận Liên Chiểu,tp Đà Nẵng",R.drawable.room1));
-        data.add(new Data("Hữu Nghĩa","đường Hồ Tùng Mậu,quận Liên Chiểu,tp Đà Nẵng",R.drawable.room2));
-        data.add(new Data("Tấn Nam","quận Hải Châu,tp Đà Nẵng",R.drawable.room3));
-        Log.d("test2","set data thành công");
+
+    private boolean checkAuth() {
+        Log.d("log","check"+check);
+        if (check==0)
+        return false;
+        else return true;
     }
+
 
     @Override
     public void onBackPressed() {
@@ -108,11 +109,25 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        displayNavigation(id);
+        return true;
+    }
+
+    private void displayNavigation(int id) {
+
+        Fragment fragment;
 
         if (id == R.id.nav_home) {
+            fragment=new Menu1Fragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_main, fragment);
+            ft.commit();
 
-            // Handle the camera action
-        } else if (id == R.id.nav_addfriend) {
+        } else if (id == R.id.nav_add) {
+            fragment=new Menu2Fragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_main, fragment);
+            ft.commit();
 
         } else if (id == R.id.nav_money) {
 
@@ -126,7 +141,6 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
 }

@@ -6,4 +6,17 @@
 
     <!--post for boss-->
     <color name="button_post">#CC1D1D</color>
+
+    <!-- add color -->
+    <color name="red">#fc0404</color>
+    <color name="blue">#0514e9</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+
+
+    <!--phần của Dung.-->
+    <color name="background"></color>
+    <!--<color name="button">#1AFF1A</color>-->
+    <color name="button">#1aff1a</color>
+
 </resources>

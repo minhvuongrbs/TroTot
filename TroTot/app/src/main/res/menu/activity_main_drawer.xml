@@ -10,7 +10,7 @@
             android:title="Cho Thuê" />
         <item
 
-            android:id="@+id/nav_addfriend"
+            android:id="@+id/nav_add"
             android:icon="@drawable/addfriend"
             android:title="Ở Ghép" />
         <item
