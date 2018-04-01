@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot;
+package trotot.dnvn.cndd.trotot.Navi;
 
 
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import trotot.dnvn.cndd.trotot.R;
 
 
 public class Menu2Fragment extends Fragment {

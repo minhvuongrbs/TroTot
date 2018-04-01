@@ -1,7 +1,6 @@
-package trotot.dnvn.cndd.trotot;
+package trotot.dnvn.cndd.trotot.Dung;
 
 import android.content.Intent;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import trotot.dnvn.cndd.trotot.MainActivity;
+import trotot.dnvn.cndd.trotot.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 

@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot;
+package trotot.dnvn.cndd.trotot.Navi;
 
 
 import android.os.Bundle;
@@ -9,15 +9,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import trotot.dnvn.cndd.trotot.R;
 
 
 public class Menu1Fragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
 
+    private TextView mTextViewXemThem;
     private List<Data> data;
 
     public Menu1Fragment() {
@@ -33,6 +37,7 @@ public class Menu1Fragment extends Fragment {
 
         //    recycler view for post
         mRecyclerView=(RecyclerView) rootView.findViewById(R.id.post);
+        mTextViewXemThem=(TextView) rootView.findViewById(R.id.post_xem_them);
 
         initData();
 

@@ -21,10 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".Dung.LoginActivity" />
         <!-- <activity android:name=".MainActivity"></activity> -->
 
-        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".Dung.SignUpActivity"></activity>
     </application>
 
 </manifest>
