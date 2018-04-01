@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot;
+package trotot.dnvn.cndd.trotot.Navi;
 
 
 import android.os.Bundle;
@@ -7,14 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
-public class PostDetailSecondFragment extends Fragment {
+import trotot.dnvn.cndd.trotot.R;
 
 
-    public PostDetailSecondFragment() {
+public class Menu2Fragment extends Fragment {
+
+
+    public Menu2Fragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +22,7 @@ public class PostDetailSecondFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_post_detail_second, container, false);
+        return inflater.inflate(R.layout.fragment_menu2, container, false);
     }
 
 }

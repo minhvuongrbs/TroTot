@@ -21,11 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".Dung.LoginActivity" />
         <!-- <activity android:name=".MainActivity"></activity> -->
 
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".ForgotPassword"></activity>
+        <activity android:name=".Dung.SignUpActivity" />
+        <activity android:name=".Dung.ForgotPassword" />
+        //phan cua nam
+        <activity android:name=".PostDetail.PostDetailActivity" />
     </application>
 
 </manifest>

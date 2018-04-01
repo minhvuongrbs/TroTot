@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot;
+package trotot.dnvn.cndd.trotot.Dung;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import trotot.dnvn.cndd.trotot.R;
 
 public class ForgotPassword extends Activity {
     private EditText edt_email;
