@@ -14,15 +14,16 @@
             android:icon="@drawable/addfriend"
             android:title="Ở Ghép" />
         <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/manage"
+            android:title="Quản lý trọ" />
+        <item
 
 
             android:id="@+id/nav_money"
             android:icon="@drawable/money"
             android:title="Thanh toán tiền trọ" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/manage"
-            android:title="Quản lý trọ" />
+
     </group>
 
     <item android:title="Communicate">

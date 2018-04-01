@@ -1,19 +1,23 @@
 package trotot.dnvn.cndd.trotot.Navi;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import trotot.dnvn.cndd.trotot.PostDetail.PostDetailActivity;
 import trotot.dnvn.cndd.trotot.R;
 
 
@@ -22,6 +26,7 @@ public class Menu1Fragment extends Fragment {
     private RecyclerView.Adapter mAdapter;
 
     private TextView mTextViewXemThem;
+    private Button mButtonPost;
     private List<Data> data;
 
     public Menu1Fragment() {
@@ -38,17 +43,43 @@ public class Menu1Fragment extends Fragment {
         //    recycler view for post
         mRecyclerView=(RecyclerView) rootView.findViewById(R.id.post);
         mTextViewXemThem=(TextView) rootView.findViewById(R.id.post_xem_them);
+        mButtonPost=(Button) rootView.findViewById(R.id.btn_dang_bai);
 
         initData();
 
         mAdapter=new PostViewAdapter(data);
-
-
         LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
+        mButtonPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), PostDetailActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                Intent intent=new Intent(getContext(), PostDetailActivity.class);
+                getActivity().startActivity(intent);
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
+
         // Inflate the layout for this fragment
         return rootView;
     }

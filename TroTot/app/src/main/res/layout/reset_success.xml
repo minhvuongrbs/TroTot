@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/padding"
+    android:paddingRight="@dimen/padding"
+    android:background="@drawable/bg">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_button_post"
+        android:layout_marginBottom="@dimen/margin_button_post"
+        android:paddingLeft="@dimen/padding"
+        android:textSize="28dp"
+        android:textColor="@color/title"
+        android:text="Reset password success"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/success_text"
+        android:textColor="@color/title"
+        android:padding="@dimen/padding"
+        android:textSize="@dimen/middle_size"/>
+
+
+    <Button
+        android:textAllCaps="false"
+        android:id="@+id/loginBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_btn"
+        android:background="@drawable/button_login"
+        android:padding="3dp"
+        android:text="@string/login"
+        android:textColor="#fff"
+        android:textSize="@dimen/middle_size"
+        android:textStyle="bold"
+        />
+
+</LinearLayout>

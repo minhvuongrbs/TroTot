@@ -24,7 +24,10 @@
         <activity android:name=".Dung.LoginActivity" />
         <!-- <activity android:name=".MainActivity"></activity> -->
 
-        <activity android:name=".Dung.SignUpActivity"></activity>
+        <activity android:name=".Dung.SignUpActivity" />
+        <activity android:name=".Dung.ForgotPassword" />
+        //phan cua nam
+        <activity android:name=".PostDetail.PostDetailActivity" />
     </application>
 
 </manifest>

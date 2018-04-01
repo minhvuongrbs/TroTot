@@ -18,7 +18,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     String email,password;
     private EditText mEmail,mPassword;
     private Button mButtonLogin;
-    private TextView mTextViewCreatAccount;
+    private TextView mTextViewCreatAccount,mForgotPassword;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +37,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mPassword=findViewById(R.id.login_password);
         mButtonLogin=findViewById(R.id.loginBtn);
         mTextViewCreatAccount=findViewById(R.id.createAccount);
+        mForgotPassword=findViewById(R.id.forgot_password);
 
         mButtonLogin.setOnClickListener(this);
         mTextViewCreatAccount.setOnClickListener(this);
+        mForgotPassword.setOnClickListener(this);
     }
 
     @Override
@@ -50,8 +53,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.createAccount:
                 clickSignUp();
                 break;
+            case R.id.forgot_password:
+                clickForgot();
+                break;
         }
     }
+
+    private void clickForgot() {
+        Intent forgot=new Intent(LoginActivity.this,ForgotPassword.class);
+        startActivity(forgot);
+    }
+
     private void clickSignUp() {
         Intent intent=new Intent(getApplicationContext(),SignUpActivity.class);
         startActivity(intent);
@@ -67,4 +79,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         else Toast.makeText(getApplicationContext(),"Sorry,Your account is Invalid ",Toast.LENGTH_SHORT).show();
     }
+
 }

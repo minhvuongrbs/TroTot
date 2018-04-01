@@ -2,21 +2,22 @@ package trotot.dnvn.cndd.trotot;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import trotot.dnvn.cndd.trotot.Dung.LoginActivity;
 import trotot.dnvn.cndd.trotot.Navi.Menu1Fragment;
 import trotot.dnvn.cndd.trotot.Navi.Menu2Fragment;
+import trotot.dnvn.cndd.trotot.Navi.Menu3Fragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -128,6 +129,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_money) {
 
         } else if (id == R.id.nav_manage) {
+            fragment=new Menu3Fragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_main, fragment);
+            ft.commit();
 
         } else if (id == R.id.nav_share) {
 
