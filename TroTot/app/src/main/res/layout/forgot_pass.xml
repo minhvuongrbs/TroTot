@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_button_post"
+        android:gravity="center"
+        android:textSize="@dimen/largin_size"
+        android:textColor="@color/title"
+        android:text="@string/Forgot_pass"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_text"
+        android:textColor="@color/title"
+        android:padding="@dimen/padding"
+        android:textSize="@dimen/middle_size"/>
+
+    <EditText
+        android:id="@+id/my_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your email..."
+        android:layout_margin="@dimen/padding"/>
+
+    <Button
+        android:textAllCaps="false"
+        android:id="@+id/btn_reset"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_btn"
+        android:background="@drawable/button_login"
+        android:padding="3dp"
+        android:text="@string/reset_pass"
+        android:textColor="#fff"
+        android:textSize="@dimen/middle_size"
+        android:textStyle="bold"
+        />
+
+</LinearLayout>
