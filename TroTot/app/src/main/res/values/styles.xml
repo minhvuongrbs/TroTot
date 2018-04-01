@@ -20,16 +20,6 @@
     //post for boss
     <style name="button_top">
     </style>
-
-
-    //phan cua nam
-    <style name="textViewInPost">
-        <item name="android:textSize">30dp</item>
-        <item name="android:textColor">@color/blue</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:padding">10dp</item>
-
-
-    </style>
+    
 
 </resources>
