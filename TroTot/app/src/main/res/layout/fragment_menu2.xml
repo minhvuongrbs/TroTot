@@ -2,46 +2,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="trotot.dnvn.cndd.trotot.Navi.Menu2Fragment">
+    tools:context="trotot.dnvn.cndd.trotot.Navi.menu2.Menu2Fragment">
 
     <LinearLayout
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:weightSum="4"
-            android:orientation="horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <LinearLayout
+                android:weightSum="4"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/addPhoto"
+                    android:src="@drawable/addphoto"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp" />
+                <ImageView
+                    android:id="@+id/addLocation"
+                    android:src="@drawable/addlocation"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+
+            <EditText
+                android:hint="What's on your mean?"
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />
             <ImageView
-                android:src="@drawable/addphoto"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="30dp" />
-            <ImageView
-                android:src="@drawable/addlocation"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="30dp" />
+                android:id="@+id/setImageDemo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="240dp"
+                android:background="@color/button"
+                android:text="Post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <EditText
-            android:hint="What's on your mean?"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_post2"
             android:layout_width="match_parent"
-            android:layout_height="80dp" />
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
-        <Button
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="240dp"
-            android:background="@color/button"
-            android:text="Post"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
     </LinearLayout>
-
 
 </FrameLayout>

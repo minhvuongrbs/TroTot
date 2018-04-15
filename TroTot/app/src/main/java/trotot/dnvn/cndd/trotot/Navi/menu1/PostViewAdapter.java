@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot.Navi;
+package trotot.dnvn.cndd.trotot.Navi.menu1;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

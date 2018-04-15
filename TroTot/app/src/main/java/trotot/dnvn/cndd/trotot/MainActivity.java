@@ -15,9 +15,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import trotot.dnvn.cndd.trotot.Dung.LoginActivity;
-import trotot.dnvn.cndd.trotot.Navi.Menu1Fragment;
-import trotot.dnvn.cndd.trotot.Navi.Menu2Fragment;
-import trotot.dnvn.cndd.trotot.Navi.Menu3Fragment;
+import trotot.dnvn.cndd.trotot.Navi.menu1.Menu1Fragment;
+import trotot.dnvn.cndd.trotot.Navi.menu2.Menu2Fragment;
+import trotot.dnvn.cndd.trotot.Navi.menu3.Menu3Fragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

@@ -42,4 +42,20 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     //end Dung
+
+
+    //string room manage
+    <string-array name="location">
+        <item>Khu vực</item>
+        <item>Liên Chiểu</item>
+        <item>Thanh Khê</item>
+        <item>Hải Châu</item>
+        <item>Hòa Vang</item>
+    </string-array>
+    <string-array name="rate">
+        <item>Giá phòng</item>
+        <item>Ít hơn 700k</item>
+        <item>700k-1200k</item>
+        <item>Lớn hơn 1200k</item>
+    </string-array>
 </resources>
