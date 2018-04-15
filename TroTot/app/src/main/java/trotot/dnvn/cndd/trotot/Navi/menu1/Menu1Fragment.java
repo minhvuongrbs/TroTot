@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot.Navi;
+package trotot.dnvn.cndd.trotot.Navi.menu1;
 
 
 import android.content.Intent;
@@ -11,7 +11,10 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,9 +24,11 @@ import trotot.dnvn.cndd.trotot.PostDetail.PostDetailActivity;
 import trotot.dnvn.cndd.trotot.R;
 
 
-public class Menu1Fragment extends Fragment {
+public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelectedListener {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
+    private Spinner mSpinnerLocation;
+    private Spinner mSpinnerRate;
 
     private TextView mTextViewXemThem;
     private Button mButtonPost;
@@ -44,6 +49,17 @@ public class Menu1Fragment extends Fragment {
         mRecyclerView=(RecyclerView) rootView.findViewById(R.id.post);
         mTextViewXemThem=(TextView) rootView.findViewById(R.id.post_xem_them);
         mButtonPost=(Button) rootView.findViewById(R.id.btn_dang_bai);
+        mSpinnerLocation=rootView.findViewById(R.id.spinner_location);
+        ArrayAdapter<CharSequence> adapter1=ArrayAdapter.createFromResource(getContext() ,R.array.location,android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSpinnerLocation.setAdapter(adapter1);
+        mSpinnerLocation.setOnItemSelectedListener(this);
+
+        mSpinnerRate=rootView.findViewById(R.id.spinner_rate);
+        ArrayAdapter<CharSequence> adapter2=ArrayAdapter.createFromResource(getContext() ,R.array.rate,android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSpinnerRate.setAdapter(adapter2);
+        mSpinnerRate.setOnItemSelectedListener(this);
 
         initData();
 
@@ -94,4 +110,13 @@ public class Menu1Fragment extends Fragment {
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String text=adapterView.getItemAtPosition(i).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }

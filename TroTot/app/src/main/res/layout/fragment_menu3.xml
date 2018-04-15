@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Navi.Menu3Fragment">
+    tools:context=".Navi.menu3.Menu3Fragment">
 
     <LinearLayout
         android:layout_margin="10dp"
@@ -150,6 +150,7 @@
                 android:layout_width="0dp"
                 android:layout_height="70dp" />
             <Button
+                android:id="@+id/button_room_manage"
                 android:layout_margin="10dp"
                 android:background="#8e4837"
                 android:textColor="#fff"
