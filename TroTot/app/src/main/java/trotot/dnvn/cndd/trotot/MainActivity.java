@@ -23,19 +23,11 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    private int check=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent =getIntent();
-        check=intent.getIntExtra("check auth",0);
-        if (!checkAuth()){
-            Log.d("log","checkauth");
-            Intent checkLogin;
-            checkLogin=new Intent(getApplicationContext(),LoginActivity.class);
-            startActivity(checkLogin);
-        }
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         try{
@@ -58,12 +50,6 @@ public class MainActivity extends AppCompatActivity
         Log.d("test3","chạy hết create");
     }
 
-    private boolean checkAuth() {
-        Log.d("log","check"+check);
-        if (check==0)
-        return false;
-        else return true;
-    }
 
 
     @Override

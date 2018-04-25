@@ -73,7 +73,7 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
         mButtonPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getContext(), PostDetailActivity.class);
+                Intent intent=new Intent(getContext(), InforToPostActivity.class);
                 getActivity().startActivity(intent);
             }
         });
