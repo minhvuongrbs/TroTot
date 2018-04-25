@@ -2,43 +2,32 @@ package trotot.dnvn.cndd.trotot;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
-import java.util.List;
+import trotot.dnvn.cndd.trotot.Dung.LoginActivity;
+import trotot.dnvn.cndd.trotot.Navi.menu1.Menu1Fragment;
+import trotot.dnvn.cndd.trotot.Navi.menu2.Menu2Fragment;
+import trotot.dnvn.cndd.trotot.Navi.menu3.Menu3Fragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    private int check=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent =getIntent();
-        check=intent.getIntExtra("check auth",0);
-        if (!checkAuth()){
-            Log.d("log","checkauth");
-            Intent checkLogin;
-            checkLogin=new Intent(getApplicationContext(),LoginActivity.class);
-            startActivity(checkLogin);
-        }
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         try{
@@ -61,12 +50,6 @@ public class MainActivity extends AppCompatActivity
         Log.d("test3","chạy hết create");
     }
 
-    private boolean checkAuth() {
-        Log.d("log","check"+check);
-        if (check==0)
-        return false;
-        else return true;
-    }
 
 
     @Override
@@ -132,6 +115,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_money) {
 
         } else if (id == R.id.nav_manage) {
+            fragment=new Menu3Fragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_main, fragment);
+            ft.commit();
 
         } else if (id == R.id.nav_share) {
 

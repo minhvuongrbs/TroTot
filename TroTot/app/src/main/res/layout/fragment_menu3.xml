@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Navi.menu3.Menu3Fragment">
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:padding="5dp"
+            android:background="@drawable/vien2"
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="25dp"
+                    android:text="Dãy trọ hạnh phúc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="Nguyễn Hữu Nghĩa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="k58 Ngô Thì Nhậm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <ImageView
+                android:padding="3dp"
+                android:src="@drawable/user"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="20dp"
+                    android:text="Đánh giá:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:src="@drawable/star"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="20dp"
+                    android:text="Xếp hạng:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="20dp"
+                    android:text="517"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="20dp"
+                    android:text="Phân khúc:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="20dp"
+                    android:text="Giá rẻ"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="20dp"
+                    android:text="Giá phòng trung bình:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="20dp"
+                    android:text="600k"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="20dp"
+                    android:text="Theo dõi:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="20dp"
+                    android:text="520 người đang theo dõi bạn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="20dp"
+                    android:text="Yêu cầu đặt phòng:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="20dp"
+                    android:text="Có 15 yêu cầu đang chờ"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="150dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+            <Button
+                android:layout_margin="10dp"
+                android:background="#8e4837"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Reply yêu cầu"
+                android:layout_width="0dp"
+                android:layout_height="70dp" />
+            <Button
+                android:id="@+id/button_room_manage"
+                android:layout_margin="10dp"
+                android:background="#8e4837"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Quản lý phòng"
+                android:layout_width="0dp"
+                android:layout_height="70dp" />
+            <Button
+                android:layout_margin="10dp"
+                android:background="#8e4837"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:text="Tin nhắn"
+                android:layout_width="0dp"
+                android:layout_height="70dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

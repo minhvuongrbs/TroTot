@@ -74,10 +74,12 @@
             android:id="@+id/caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
         <Button
-            android:text="xem thêm"
+            android:id="@+id/post_xem_them"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="xem thêm" />
 
         <ImageView
             android:scaleType="fitXY"

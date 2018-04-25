@@ -21,6 +21,10 @@
     //end
 
     //dung
+    <dimen name="margin_btn">20dp</dimen>
+    <dimen name="padding">20dp</dimen>
     <dimen name="middle_size">16dp</dimen>
+    <dimen name="largin_size">32dp</dimen>
+    <dimen name="small_size">12dp</dimen>
     //end dung
 </resources>
