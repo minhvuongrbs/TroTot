@@ -39,8 +39,22 @@
     <string name="reset_success"></string>
     <string name="success_text">Your password has been changed. \nPlease log in to continue!</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- fragment about text -->
+    <string name="welcome"> Chào mừng bạn đến với Trọ Tốt</string>
+    <string name="about">
+        \t Phần lớn mọi người (những ai sống xa nhà) chắc cũng đã đều trải qua giai đoạn ở trọ. Và điều mệt mỏi nhất đó là đi tìm cho được phòng như ý để ở lâu dài.
+        \n Sau một thời gian vừa phải sống ở khu nhà này, bây giờ cũng đã đến lúc mình phải tìm nơi khác để chuyển đi vì nhiều lý do. Lên mạng tìm rồi vào chợ ứng dụng tìm các app về nhà trọ thì cũng thấy nhưng mà ít thông tin quá. Vì không phải chủ nhà nào cũng biết lên mạng mà đăng cho thuê. Mà mình thì đang trong cảnh cần chuyển gấp, thế là rốt cuộc cũng phải vác xe ra đường rong ruổi hỏi thăm từng khu phố để hỏi xem có ai cho thuê không. May mà mùa này còn mát mẻ.
+        \n Loăn xoăn cũng được hơn một tuần rồi, xem cũng khá nhiều phòng nhưng vẫn chưa như ý. Nhưng chợt nghĩ đến một ý tưởng đó là có một cái bản đồ nhà trọ trên toàn quốc, chỉ việc ở nhà xem, thấy cái nào được thì đánh dấu lại rồi tới hỏi xem có còn cho thuê không
+        \n Đó là lý do cái ứng dụng này ra đời.
+    </string>
+    <string name="contact">Hot line: 0969696969 \nEmail: contact@trotot.com</string>
+
+    <string name="text_support">
+        Hiện tại TRỌ TỐt đang ở gii đoạn phát triển. Nếu bạn có ý kiến đóng góp hoặc nhận thấy hệ thống hoạt động lỗi, vui lòng thông báo với chúng tôi để sản phẩm được hoàn thiện hơn.
+        Xin cảm ơn!
+    </string>
+    <string name="gui_phan_hoi"> Gửi phản hồi</string>
+    <string name="submit">Gửi</string>
     //end Dung
 
 
@@ -58,4 +72,7 @@
         <item>700k-1200k</item>
         <item>Lớn hơn 1200k</item>
     </string-array>
+
+    <!-- fragment support text -->
+
 </resources>

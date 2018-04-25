@@ -26,7 +26,7 @@ public class ForgotPassword extends Activity {
             public void onClick(View view) {
                 Intent intent=new Intent(ForgotPassword.this,LoginActivity.class);
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(),"there is a even! ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"there is a wrong! ",Toast.LENGTH_SHORT).show();
             }
         });
     }

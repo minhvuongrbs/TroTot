@@ -120,10 +120,18 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.content_main, fragment);
             ft.commit();
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        }
+        else if (id == R.id.nav_support) {
+            fragment=new SupportFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_main, fragment);
+            ft.commit();
+        }
+            else if (id == R.id.nav_about) {
+                fragment=new AboutFragment();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

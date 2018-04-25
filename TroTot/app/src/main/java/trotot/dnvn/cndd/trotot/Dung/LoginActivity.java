@@ -2,12 +2,15 @@ package trotot.dnvn.cndd.trotot.Dung;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,24 +37,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     public static final String TAG = LoginActivity.class.getSimpleName();
     public static String token;
-    private static String LINK_LOGIN = "http://192.168.1.75/api/v1/login";
+    private static String LINK_LOGIN = "http://192.168.1.72/api/v1/login";
     public ProgressDialog mProgressDialog;
     private String email, password;
     private EditText mEditEmail, mEditTextPassword;
     private Button mButtonLogin;
     private TextView mTextViewCreatAccount, mForgotPassword;
+    private CheckBox mCheckbox;
+
+    SharedPreferences sharedPreferences;
 
     public static final String KEY_EMAIL = "email";
     public static final String KEY_PASSWORD = "password";
-
+    public static final String MyPREFFERENCE = "MyPrefs";
+    public static final String REMEMBER = "remember";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-        initView();
+        sharedPreferences = getSharedPreferences(MyPREFFERENCE, Context.MODE_PRIVATE);
+        initView(); // khoi tao cac control
+        loadData(); //lay du lieu neu co
 
     }
 
@@ -61,6 +69,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mButtonLogin = findViewById(R.id.loginBtn);
         mTextViewCreatAccount = findViewById(R.id.createAccount);
         mForgotPassword = findViewById(R.id.forgot_password);
+        mCheckbox = findViewById(R.id.remember_password);
 
         mButtonLogin.setOnClickListener(this);
         mTextViewCreatAccount.setOnClickListener(this);
@@ -87,6 +96,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.forgot_password:
                 clickForgot();
+                break;
+            case R.id.remember_password:
+                clickRemember();
                 break;
         }
     }
@@ -178,8 +190,35 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
     }
 
+    private void clickRemember() {
+        if (mCheckbox.isChecked()){
+            save(mEditEmail.getText().toString(),mEditTextPassword.getText().toString());
+        } else {
+            clearData();
+        }
+    }
+    private void save(String email, String password) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_EMAIL, email);
+        editor.putString(KEY_PASSWORD, password);
+        editor.putBoolean(REMEMBER,mCheckbox.isChecked() );
+        editor.commit();
+    }
+    private void clearData() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.commit();
+    }
 
-
-
+    private void loadData(){
+        if (sharedPreferences.getBoolean(REMEMBER, false)){
+            mEditEmail.setText(sharedPreferences.getString(KEY_EMAIL,""));
+            mEditTextPassword.setText(sharedPreferences.getString(KEY_PASSWORD, ""));
+            mCheckbox.setChecked(true);
+        }
+        else {
+            mCheckbox.setChecked(false);
+        }
+    }
 
 }
