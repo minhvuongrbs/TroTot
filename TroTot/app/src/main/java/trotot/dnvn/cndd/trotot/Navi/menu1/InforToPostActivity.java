@@ -21,10 +21,12 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -33,13 +35,15 @@ import java.util.Map;
 import trotot.dnvn.cndd.trotot.Dung.Account;
 import trotot.dnvn.cndd.trotot.MainActivity;
 import trotot.dnvn.cndd.trotot.R;
+import trotot.dnvn.cndd.trotot.SharedPreference;
 
 import static trotot.dnvn.cndd.trotot.Dung.LoginActivity.SERVER;
 
+
 public class InforToPostActivity extends AppCompatActivity {
 
-    private static String API="";
-    private static String LINK_LOGIN = SERVER+API;
+    private static String API="api/v1/post-room";
+    private static String LINK = SERVER+API;
     private ImageView mImageView;
     private Button mButtonPost;
     private EditText mEditTextAddress,mEditTextArea,mEditTextElectricRate,mEditTextWaterRate,mEditTextDescribe,mEditTextPhone;
@@ -49,9 +53,9 @@ public class InforToPostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infor_to_post);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_infor_post);
         setSupportActionBar(toolbar);
+
 
         //phim back
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -71,50 +75,71 @@ public class InforToPostActivity extends AppCompatActivity {
         mButtonPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String address = mEditTextAddress.getText().toString();
-                String area = mEditTextArea.getText().toString();
-                String electricRate = mEditTextElectricRate.getText().toString();
-                String waterRate = mEditTextWaterRate.getText().toString();
-                String describe = mEditTextDescribe.getText().toString();
-                String phone = mEditTextPhone.getText().toString();
-                Log.d("address","address"+address);
-
-                if (address.length()==0|| area.length()==0 || electricRate.length()==0 || waterRate.length()==0 || describe.length()==0 || phone.length()==0) {
-                    Log.d("if","area"+area);
-                    Toast.makeText(InforToPostActivity.this, "Hãy nhập đủ thông tin yêu cầu!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Log.d("else","phone"+phone);
-                    startActivity(new Intent(InforToPostActivity.this, MainActivity.class));
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, LINK_LOGIN,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    Log.d("log", response);
-                                    PostBoss postBoss = new PostBoss();
-
-
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    VolleyLog.d("tag", "Error: " + error.getMessage());
-                                }
-                            }
-                    ) {
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-                            return super.getParams();
-//                        Map<String, String> params = new HashMap<>();
-//                        params.put("", email);
-//                        params.put("", password);
-//                        return params;
-                        }
-                    };
-                }
+                clickPost();
             }
         });
     }
+
+    private void clickPost() {
+
+        final String address = mEditTextAddress.getText().toString();
+        final String area = mEditTextArea.getText().toString();
+        final String electricRate = mEditTextElectricRate.getText().toString();
+        final String waterRate = mEditTextWaterRate.getText().toString();
+        final String describe = mEditTextDescribe.getText().toString();
+        final String phone = mEditTextPhone.getText().toString();
+        Log.d("address","address"+address);
+
+        if (address.length()==0|| area.length()==0 || electricRate.length()==0 || waterRate.length()==0 || describe.length()==0 || phone.length()==0) {
+            Log.d("if","area"+area);
+            Toast.makeText(InforToPostActivity.this, "Hãy nhập đủ thông tin yêu cầu!", Toast.LENGTH_SHORT).show();
+        } else {
+            Log.d("else","phone"+phone);
+            SharedPreference sharedPreference=new SharedPreference(this);
+            final Account account=(Account) sharedPreference.getUserLogin();
+            startActivity(new Intent(InforToPostActivity.this, MainActivity.class));
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, LINK,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Log.d("log", response);
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            VolleyLog.d("tag", "Error: " + error.getMessage());
+                        }
+                    }
+            ) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+//                    return super.getParams();
+                        Map<String, String> params = new HashMap<>();
+                        params.put("address", address);
+                        params.put("phone", phone);
+                        params.put("acreage", area);
+                        params.put("electric_bill", electricRate);
+                        params.put("water_bill", waterRate);
+                        params.put("description", describe);
+                        Log.d("paranms","get params successful");
+                        return params;
+                }
+
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String>  params = new HashMap<String, String>();
+                    params.put( "Authorization", "Bearer "+ account.getToken());
+                    Log.d("send header",account.getToken());
+                    return params;
+                }
+            };
+
+            RequestQueue queue = Volley.newRequestQueue(this);
+            queue.add(stringRequest);
+        }
+    }
+
     private void initGui() {
         mImageView=findViewById(R.id.image_infor_post);
         mButtonPost=findViewById(R.id.btn_dang_tin);

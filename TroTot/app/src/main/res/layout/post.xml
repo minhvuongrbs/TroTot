@@ -60,20 +60,50 @@
         </LinearLayout>
 
         <TextView
+            android:maxLines="1"
             android:text="Số 50 Ngô Thì Nhậm,quận Liên Chiểu,tp Đà Nẵng"
             android:textColor="#000"
             android:layout_marginLeft="10dp"
             android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        <LinearLayout
+            android:weightSum="100"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_weight="30"
+                android:layout_marginLeft="10dp"
+                android:textColor="#000"
+                android:text="Diện tích:"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/txtViewArea"
+                android:textColor="#000"
+                android:text="17 mét vuông"
+                android:layout_weight="70"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
         <TextView
-            android:maxLines="1"
-            android:layout_marginLeft="10dp"
+            android:text=""
             android:textColor="#000"
-            android:text="cho thuê phòng 2 người,điện nước đầy đủ,wifi đã có,trọ có 10 phòng"
-            android:id="@+id/caption"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txtViewDescribe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        <LinearLayout
+            android:weightSum="100"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/post_xem_them"

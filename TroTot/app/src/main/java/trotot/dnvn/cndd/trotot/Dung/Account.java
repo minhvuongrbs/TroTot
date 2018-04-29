@@ -9,6 +9,15 @@ public class Account implements Serializable {
     private String phone;
     private String address;
     private String image;
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public Account(){
         this.userName = null;
@@ -16,8 +25,9 @@ public class Account implements Serializable {
         this.address = null;
         this.phone = null;
         this.image=null;
+        String token=null;
     }
-    public Account(String userName, String email, String address, String phone,String image) {
+    public Account(String userName, String email, String address, String phone,String image,String token) {
         this.userName = userName;
         this.email = email;
         this.address = address;
