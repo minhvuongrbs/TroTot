@@ -94,7 +94,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:background="@drawable/button_login"
+            android:background="@drawable/button"
             android:padding="3dp"
             android:text="@string/login"
             android:textColor="#fff"

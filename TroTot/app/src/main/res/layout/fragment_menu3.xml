@@ -142,30 +142,30 @@
             android:layout_height="70dp">
             <Button
                 android:layout_margin="10dp"
-                android:background="#8e4837"
+                android:background="@color/tab_layout_post"
                 android:textColor="#fff"
                 android:layout_weight="1"
                 android:textAllCaps="false"
-                android:text="Reply yêu cầu"
+                android:text="@string/reply"
                 android:layout_width="0dp"
                 android:layout_height="70dp" />
             <Button
                 android:id="@+id/button_room_manage"
                 android:layout_margin="10dp"
-                android:background="#8e4837"
+                android:background="@color/tab_layout_post"
                 android:textColor="#fff"
                 android:layout_weight="1"
                 android:textAllCaps="false"
-                android:text="Quản lý phòng"
+                android:text="@string/manage"
                 android:layout_width="0dp"
                 android:layout_height="70dp" />
             <Button
                 android:layout_margin="10dp"
-                android:background="#8e4837"
+                android:background="@color/tab_layout_post"
                 android:textColor="#fff"
                 android:layout_weight="1"
                 android:textAllCaps="false"
-                android:text="Tin nhắn"
+                android:text="@string/mesage"
                 android:layout_width="0dp"
                 android:layout_height="70dp" />
         </LinearLayout>

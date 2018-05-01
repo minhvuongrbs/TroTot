@@ -16,7 +16,7 @@
     <dimen name="edt_margin_button">10dp</dimen>0
     <dimen name="text_padding">10dp</dimen>
     <dimen name="text_size_large">48dp</dimen>
-    <dimen name="text_size_medium">24dp</dimen>
+    <dimen name="text_size_medium">30dp</dimen>
     <dimen name="text_size_small">15dp</dimen>
     //end
 

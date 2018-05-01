@@ -4,18 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PostDetail.PostDetailFirstFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="20dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Giới thiệu phòng trọ"
+        android:text="@string/introduce_title"
         android:textSize="25dp"
         android:textStyle="bold"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nội dung giới thiệu phòng trọ [string]
-        Các lưu ý của chủ trọ hoặc là nội dung kèm theo"
+        android:text="@string/introduce_detail"
         />
 </LinearLayout>

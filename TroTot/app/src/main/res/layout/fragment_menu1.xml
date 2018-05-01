@@ -10,13 +10,13 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:background="#E43F3F"
-            android:orientation="horizontal"
+            android:background=
+            android:orientatSpinnerion="horizontal"
             android:weightSum="5"
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
-            <Spinner
+            <
                 android:id="@+id/spinner_location"
                 android:singleLine="true"
                 android:selectAllOnFocus="true"
@@ -43,7 +43,7 @@
             <TextView
                 android:gravity="center"
                 android:textSize="20dp"
-                android:hint="Bạn có phòng cho thuê?"
+                android:hint="@string/question_post"
                 android:layout_width="match_parent"
                 android:layout_height="40dp" />
             <Button
@@ -51,8 +51,8 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="@dimen/margin_button_post"
                 android:layout_marginRight="@dimen/margin_button_post"
-                android:background="@color/button_post"
-                android:textColor="#fff"
+                android:background="@drawable/button"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Đăng Tin Ngay"/>

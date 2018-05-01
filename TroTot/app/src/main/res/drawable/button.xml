@@ -4,7 +4,7 @@
 
     <!-- Set màu nền-->
     <solid
-        android:color="#1AFF1A" >
+        android:color="@color/tab_layout_post" >
     </solid>
 
     <!-- và đây là bán kính đường tròn ở 4 góc -->

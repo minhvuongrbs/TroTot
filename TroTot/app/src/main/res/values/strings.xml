@@ -6,6 +6,7 @@
 
     <string name="action_settings">Settings</string>
 
+    // Related to sign up and log in
     <string name="title">TRỌ TỐT</string>
     <string name="tt_login">LOG IN</string>
     <string name="tt_signup">SIGN UP</string>
@@ -19,8 +20,6 @@
     <string name="sign_up">Create a new account?</string>
     <string name="sign_in">I have an account !</string>
     <string name="hint_repassword">Reset password</string>
-
-    //String Dung
     <string name="signup">Sign Up</string>
     <string name="username">User Name</string>
     <string name="phone">Phone Number</string>
@@ -38,8 +37,38 @@
     <string name="reset_pass">Reset Password</string>
     <string name="reset_success"></string>
     <string name="success_text">Your password has been changed. \nPlease log in to continue!</string>
+    //
 
-    <!-- fragment about text -->
+    //Related to post
+    <string name="post_title">Tiêu đề bài đăng</string>
+    <string name="post_info">Thông tin bài đăng</string>
+    <string name="img_detail">Ảnh chi tiết nhà trọ cho thuê:</string>
+    <string name="dia_chi">Địa chỉ:</string>
+    <string name="dien_tich">Diện tích:</string>
+    <string name="tien_dien">Tiền điện:</string>
+    <string name="tien_nuoc">Tiền nước:</string>
+    <string name="ve_sinh">Vệ sinh:</string>
+    <string name="chu_tro">Chủ trọ:</string>
+    <string name="sdt">Diện thoại:</string>
+    <string name="btn_dang">Đăng tin:</string>
+    <string name="btn_post">Post</string>
+    <string name="question_post">Bạn có phòng cho thuê?</string>
+    <string name="question_mean">What's on your mean?</string>
+    <string name="introduce_title">Giới thiệu phòng trọ</string>
+    <string name="introduce_detail">
+        Nội dung giới thiệu phòng trọ.
+        \nCác lưu ý của chủ trọ hoặc là nội dung kèm theo
+    </string>
+    <string name="info_tro">Thông tin phòng trọ</string>
+    <string name="status">Tình trạng phòng trọ</string>
+    <string name="btn_xem_them">Xem thêm</string>
+    //
+    <string name="reply">Reply yêu cầu</string>
+    <string name="manage">Quản lý phòng</string>
+    <string name="mesage">Tin nhắn</string>
+
+
+    // fragment About
     <string name="welcome"> Chào mừng bạn đến với Trọ Tốt</string>
     <string name="about">
         \t Phần lớn mọi người (những ai sống xa nhà) chắc cũng đã đều trải qua giai đoạn ở trọ. Và điều mệt mỏi nhất đó là đi tìm cho được phòng như ý để ở lâu dài.
@@ -49,13 +78,15 @@
     </string>
     <string name="contact">Hot line: 0969696969 \nEmail: contact@trotot.com</string>
 
+    //fragment Support
     <string name="text_support">
-        Hiện tại TRỌ TỐt đang ở gii đoạn phát triển. Nếu bạn có ý kiến đóng góp hoặc nhận thấy hệ thống hoạt động lỗi, vui lòng thông báo với chúng tôi để sản phẩm được hoàn thiện hơn.
+        \tHiện tại TRỌ TỐt đang ở gii đoạn phát triển. Nếu bạn có ý kiến đóng góp hoặc nhận thấy hệ thống hoạt động lỗi, vui lòng thông báo với chúng tôi để sản phẩm được hoàn thiện hơn.
         Xin cảm ơn!
     </string>
-    <string name="gui_phan_hoi"> Gửi phản hồi</string>
+    <string name="gui_phan_hoi"> Gửi phản hồi </string>
+    <string name="hint_ykien">Ý kiến của bạn</string>
     <string name="submit">Gửi</string>
-    //end Dung
+    //
 
 
     //string room manage
@@ -73,6 +104,6 @@
         <item>Lớn hơn 1200k</item>
     </string-array>
 
-    <!-- fragment support text -->
+
 
 </resources>

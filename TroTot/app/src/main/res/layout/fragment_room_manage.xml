@@ -14,7 +14,7 @@
         <TextView
             android:textSize="30dp"
             android:gravity="center"
-            android:text="Tình trạng phòng trọ"
+            android:text="@string/status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
