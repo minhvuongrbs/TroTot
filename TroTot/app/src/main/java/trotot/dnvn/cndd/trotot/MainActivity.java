@@ -13,7 +13,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
+import trotot.dnvn.cndd.trotot.Dung.Account;
 import trotot.dnvn.cndd.trotot.Dung.LoginActivity;
 import trotot.dnvn.cndd.trotot.Navi.menu1.Menu1Fragment;
 import trotot.dnvn.cndd.trotot.Navi.menu2.Menu2Fragment;
@@ -21,7 +24,8 @@ import trotot.dnvn.cndd.trotot.Navi.menu3.Menu3Fragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private TextView mTextViewUsernameNaviHeader;
+    private TextView mTextViewEmailNaviHeader;
 
 
     @Override
@@ -30,6 +34,9 @@ public class MainActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+
+
         try{
             setSupportActionBar(toolbar);
         }catch (Exception e){
@@ -44,8 +51,19 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        displayNavigation(R.id.nav_home);
 
+        View headerView = navigationView.getHeaderView(0);
+        mTextViewUsernameNaviHeader=headerView.findViewById(R.id.usernameNaviHeader);
+        mTextViewEmailNaviHeader=headerView.findViewById(R.id.emailNaviHeader);
+
+        Intent intent=getIntent();
+        SharedPreference sharedPreference=new SharedPreference(this);
+        Account account=(Account) sharedPreference.getUserLogin();
+
+
+        mTextViewEmailNaviHeader.setText(account.getEmail());
+        mTextViewUsernameNaviHeader.setText(account.getUserName());
+        displayNavigation(R.id.nav_home);
 
         Log.d("test3","chạy hết create");
     }
@@ -61,7 +79,6 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-
     }
 
     @Override

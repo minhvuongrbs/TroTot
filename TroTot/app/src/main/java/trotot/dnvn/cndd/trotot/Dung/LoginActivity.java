@@ -31,13 +31,20 @@ import java.util.Map;
 
 import trotot.dnvn.cndd.trotot.MainActivity;
 import trotot.dnvn.cndd.trotot.R;
+import trotot.dnvn.cndd.trotot.SharedPreference;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     public static final String TAG = LoginActivity.class.getSimpleName();
+<<<<<<< HEAD
     public static String token;
     private static String LINK_LOGIN = "http://192.168.1.72/api/v1/login";
+=======
+    public static String SERVER="http://192.168.1.96/";
+    private static String API="api/v1/login";
+    private static String LINK = SERVER+API;
+>>>>>>> bb9b10dd6636190b41276b09ca2b23ad471ccd62
     public ProgressDialog mProgressDialog;
     private String email, password;
     private EditText mEditEmail, mEditTextPassword;
@@ -88,7 +95,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 email = mEditEmail.getText().toString().trim();
                 password = mEditTextPassword.getText().toString().trim();
 
-                loginAccount(email, password);
+                loginAccount(email, password,view);
 
                 break;
             case R.id.createAccount:
@@ -103,10 +110,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private void loginAccount(final String email, final String password) {
+    private void loginAccount(final String email, final String password, final View view) {
         if (checkEditText(mEditEmail) && checkEditText(mEditTextPassword)) {
             mProgressDialog.show();
-            StringRequest requestLogin = new StringRequest(Request.Method.POST, LINK_LOGIN,
+            StringRequest requestLogin = new StringRequest(Request.Method.POST, LINK,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -117,6 +124,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 JSONObject data = jsonObject.getJSONObject("data");
                                 JSONObject user=data.getJSONObject("user");
 
+                                Log.d("response",response.toString());
                                 Log.d("get user",data.get("user").toString());
 //                                Toast.makeText(LoginActivity.this,response.toString(),Toast.LENGTH_SHORT).show();
 //                                if (jsonObject.getInt("success") == 1) {
@@ -126,14 +134,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     account.setPhone(user.getString("phone"));
                                     account.setAddress(user.getString("address"));
                                     account.setImage(user.getString("image"));
-
-//                                    account.setUserName(jsonObject.getString("user_name"));
-//                                    account.setEmail(jsonObject.getString("email"));
-//                                    message = jsonObject.getString("username");
-//                                    Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+                                    account.setToken(data.get("access_token").toString());
 
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    intent.putExtra("login", account);
+
+                                SharedPreference sharedPreference=new SharedPreference(view.getContext());
+                                sharedPreference.setLoggedin(true,account);
+
                                     startActivity(intent);
 //                                } else {
 //                                    message = jsonObject.getString("message");
@@ -162,6 +169,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     params.put(KEY_PASSWORD, password);
                     return params;
                 }
+
             };
             RequestQueue queue = Volley.newRequestQueue(this);
             queue.add(requestLogin);

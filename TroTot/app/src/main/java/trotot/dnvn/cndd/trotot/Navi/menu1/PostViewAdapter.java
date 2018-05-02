@@ -35,11 +35,15 @@ public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.Recycl
 
     @Override
     public void onBindViewHolder(@NonNull PostViewAdapter.RecyclerViewHolder holder, int position) {
-        holder.username.setText(data.get(position).username);
-        holder.address.setText(data.get(position).address);
-        holder.image_room.setImageResource(data.get(position).image_room_id);
-        holder.image_profile.setImageResource(data.get(position).image_profile_id);
-        holder.time_post.setText(data.get(position).time_post);
+//        holder.username.setText(data.get(position).getUsername());
+//        holder.address.setText(data.get(position).getAddress());
+//        holder.time_post.setText(data.get(position).getTimeUp());
+
+        holder.username.setText(data.get(position).getUsername());
+        holder.address.setText(data.get(position).getAddress());
+        holder.time_post.setText(data.get(position).getTimeUp());
+        holder.describe.setText(data.get(position).getDescribe());
+        holder.area.setText(data.get(position).getArea());
     }
 
     @Override
@@ -55,6 +59,9 @@ public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.Recycl
         ImageView image_room;
         ImageView image_profile;
         TextView time_post;
+        TextView describe;
+        TextView area;
+
         public RecyclerViewHolder(View itemView){
             super(itemView);
             username= itemView.findViewById(R.id.user_name);
@@ -62,6 +69,8 @@ public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.Recycl
             image_room=itemView.findViewById(R.id.image_room);
             image_profile=itemView.findViewById(R.id.image_profile);
             time_post=itemView.findViewById(R.id.time_post);
+            describe=itemView.findViewById(R.id.txtViewDescribe);
+            area=itemView.findViewById(R.id.txtViewArea);
 
         }
 
@@ -69,17 +78,77 @@ public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.Recycl
 }
 
  class Data {
-    String username;
-    String address;
-    int image_profile_id;
-    int image_room_id;
-    String time_post;
+    private String timeUp;
+     private String username;
+     private int imageId;
+     private String address;
+     private String area;
+     private String describe;
 
-    Data(String username,String address,int image_room_id,int image_profile_id,String time_post){
-        this.username=username;
-        this.address=address;
-        this.image_room_id=image_room_id;
-        this.image_profile_id=image_profile_id;
-        this.time_post=time_post;
-    }
+     public String getDescribe() {
+         return describe;
+     }
+
+     public void setDescribe(String describe) {
+         this.describe = describe;
+     }
+
+     public Data() {
+         this.timeUp = null;
+         this.username = null;
+         this.imageId = R.drawable.room1;
+         this.address = null;
+         this.area = null;
+         this.describe = null;
+     }
+
+     public Data(String timeUp, String username, int imageId, String address, String area, String describe) {
+         this.timeUp = timeUp;
+         this.username = username;
+         this.imageId = imageId;
+         this.address = address;
+         this.area = area;
+         this.describe = describe;
+     }
+
+     public String getTimeUp() {
+         return timeUp;
+     }
+
+     public void setTimeUp(String timeUp) {
+         this.timeUp = timeUp;
+     }
+
+     public String getUsername() {
+         return username;
+     }
+
+     public void setUsername(String username) {
+         this.username = username;
+     }
+
+     public int getImageId() {
+         return imageId;
+     }
+
+     public void setImageId(int imageId) {
+         this.imageId = imageId;
+     }
+
+     public String getAddress() {
+         return address;
+     }
+
+     public void setAddress(String address) {
+         this.address = address;
+     }
+
+     public String getArea() {
+         return area;
+     }
+
+     public void setArea(String area) {
+         this.area = area;
+     }
+
 }

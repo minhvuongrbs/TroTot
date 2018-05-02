@@ -8,7 +8,6 @@
 
     <!--post for boss-->
     <dimen name="margin_button_post">50dp</dimen>
-
     <dimen name="edt_margin_left">25dp</dimen>
     <dimen name="edt_margin_title">30dp</dimen>
     <dimen name="edt_margin_right">25dp</dimen>
