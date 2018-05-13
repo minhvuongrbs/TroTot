@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot.Navi.menu2;
+package trotot.dnvn.cndd.trotot.Fragment;
 
 
 import android.content.Intent;
@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import trotot.dnvn.cndd.trotot.FragmentAdapter.Post2Adapter;
+import trotot.dnvn.cndd.trotot.Model.Post2Data;
 import trotot.dnvn.cndd.trotot.R;
 
 import static android.app.Activity.RESULT_OK;

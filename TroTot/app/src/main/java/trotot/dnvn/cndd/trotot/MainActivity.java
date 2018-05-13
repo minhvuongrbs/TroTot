@@ -16,11 +16,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import trotot.dnvn.cndd.trotot.Dung.Account;
-import trotot.dnvn.cndd.trotot.Dung.LoginActivity;
-import trotot.dnvn.cndd.trotot.Navi.menu1.Menu1Fragment;
-import trotot.dnvn.cndd.trotot.Navi.menu2.Menu2Fragment;
-import trotot.dnvn.cndd.trotot.Navi.menu3.Menu3Fragment;
+import trotot.dnvn.cndd.trotot.Model.Account;
+import trotot.dnvn.cndd.trotot.Fragment.Menu1Fragment;
+import trotot.dnvn.cndd.trotot.Fragment.Menu2Fragment;
+import trotot.dnvn.cndd.trotot.Fragment.Menu3Fragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -34,8 +33,6 @@ public class MainActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-
 
         try{
             setSupportActionBar(toolbar);

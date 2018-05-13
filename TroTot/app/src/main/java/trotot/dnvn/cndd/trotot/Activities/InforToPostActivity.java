@@ -1,10 +1,7 @@
-package trotot.dnvn.cndd.trotot.Navi.menu1;
+package trotot.dnvn.cndd.trotot.Activities;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -14,7 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -32,12 +28,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import trotot.dnvn.cndd.trotot.Dung.Account;
+import trotot.dnvn.cndd.trotot.Model.Account;
 import trotot.dnvn.cndd.trotot.MainActivity;
 import trotot.dnvn.cndd.trotot.R;
 import trotot.dnvn.cndd.trotot.SharedPreference;
 
-import static trotot.dnvn.cndd.trotot.Dung.LoginActivity.SERVER;
+import static trotot.dnvn.cndd.trotot.Activities.LoginActivity.SERVER;
 
 
 public class InforToPostActivity extends AppCompatActivity {

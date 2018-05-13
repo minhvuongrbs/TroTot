@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot.Dung;
+package trotot.dnvn.cndd.trotot.Activities;
 
 import android.app.Activity;
 import android.content.Intent;

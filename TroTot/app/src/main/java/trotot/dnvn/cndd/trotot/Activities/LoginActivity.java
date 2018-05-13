@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot.Dung;
+package trotot.dnvn.cndd.trotot.Activities;
 
 
 import android.app.ProgressDialog;
@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,6 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import trotot.dnvn.cndd.trotot.MainActivity;
+import trotot.dnvn.cndd.trotot.Model.Account;
 import trotot.dnvn.cndd.trotot.R;
 import trotot.dnvn.cndd.trotot.SharedPreference;
 

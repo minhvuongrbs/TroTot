@@ -1,8 +1,12 @@
-package trotot.dnvn.cndd.trotot.PostDetail;
+package trotot.dnvn.cndd.trotot.FragmentAdapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import trotot.dnvn.cndd.trotot.Fragment.PostDetailFirstFragment;
+import trotot.dnvn.cndd.trotot.Fragment.PostDetailSecondFragment;
+import trotot.dnvn.cndd.trotot.Fragment.PostDetailThirdFragment;
 
 public class PostDetailAdapter extends FragmentStatePagerAdapter{
     int mNumOfTabs;

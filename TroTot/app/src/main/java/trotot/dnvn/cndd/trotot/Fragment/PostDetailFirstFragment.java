@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot.PostDetail;
+package trotot.dnvn.cndd.trotot.Fragment;
 
 
 import android.os.Bundle;

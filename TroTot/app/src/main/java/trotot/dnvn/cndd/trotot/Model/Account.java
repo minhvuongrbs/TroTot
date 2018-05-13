@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot.Dung;
+package trotot.dnvn.cndd.trotot.Model;
 
 import java.io.Serializable;
 
