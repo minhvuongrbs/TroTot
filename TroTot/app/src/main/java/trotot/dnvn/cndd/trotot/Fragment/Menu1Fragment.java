@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot.Navi.menu1;
+package trotot.dnvn.cndd.trotot.Fragment;
 
 
 import android.content.Intent;
@@ -34,10 +34,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import trotot.dnvn.cndd.trotot.PostDetail.PostDetailActivity;
+import trotot.dnvn.cndd.trotot.Activities.InforToPostActivity;
+import trotot.dnvn.cndd.trotot.FragmentAdapter.PostViewAdapter;
+import trotot.dnvn.cndd.trotot.Activities.PostDetailActivity;
+import trotot.dnvn.cndd.trotot.Model.Data;
 import trotot.dnvn.cndd.trotot.R;
 
-import static trotot.dnvn.cndd.trotot.Dung.LoginActivity.SERVER;
+import static trotot.dnvn.cndd.trotot.Activities.LoginActivity.SERVER;
 
 
 public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelectedListener {

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Navi.menu3.RoomManageFragment">
+    tools:context=".Fragment.RoomManageFragment">
 
     <LinearLayout
         android:orientation="vertical"

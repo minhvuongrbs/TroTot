@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot.Navi.menu3;
+package trotot.dnvn.cndd.trotot.Fragment;
 
 
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import trotot.dnvn.cndd.trotot.FragmentAdapter.RoomMnagerAdapter;
+import trotot.dnvn.cndd.trotot.Model.RoomManageData;
 import trotot.dnvn.cndd.trotot.R;
 
 

@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot.Navi.menu3;
+package trotot.dnvn.cndd.trotot.FragmentAdapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import trotot.dnvn.cndd.trotot.Model.RoomManageData;
 import trotot.dnvn.cndd.trotot.R;
 
 public class RoomMnagerAdapter extends RecyclerView.Adapter<RoomMnagerAdapter.RecyclerViewHolder>{
@@ -30,7 +31,7 @@ public class RoomMnagerAdapter extends RecyclerView.Adapter<RoomMnagerAdapter.Re
 
     @Override
     public void onBindViewHolder(@NonNull RoomMnagerAdapter.RecyclerViewHolder holder, int position) {
-        holder.username.setText(roomManageData.get(position).username);
+        holder.username.setText(roomManageData.get(position).getUsername());
 
     }
 
@@ -54,13 +55,4 @@ public class RoomMnagerAdapter extends RecyclerView.Adapter<RoomMnagerAdapter.Re
     }
 }
 
-class RoomManageData {
-    String username;
-    String tinhTrang;
 
-
-    RoomManageData(String username,String tinhTrang){
-        this.username=username;
-        this.tinhTrang=tinhTrang;
-    }
-}

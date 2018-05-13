@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot.Navi.menu2;
+package trotot.dnvn.cndd.trotot.FragmentAdapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import trotot.dnvn.cndd.trotot.Model.Post2Data;
 import trotot.dnvn.cndd.trotot.R;
 
 public class Post2Adapter extends RecyclerView.Adapter<Post2Adapter.RecyclerViewHolder>{
@@ -32,9 +33,9 @@ public class Post2Adapter extends RecyclerView.Adapter<Post2Adapter.RecyclerView
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        holder.image.setImageResource(post2Data.get(position).imageId);
-        holder.location.setText(post2Data.get(position).location);
-        holder.describe.setText(post2Data.get(position).describe);
+        holder.image.setImageResource(post2Data.get(position).getImageId());
+        holder.location.setText(post2Data.get(position).getLocation());
+        holder.describe.setText(post2Data.get(position).getDescribe());
     }
 
 
@@ -61,15 +62,4 @@ public class Post2Adapter extends RecyclerView.Adapter<Post2Adapter.RecyclerView
     }
 }
 
-class Post2Data {
-    int imageId;
-    String location;
-    String describe;
 
-
-    Post2Data(int imageId,String location,String describe){
-        this.imageId=imageId;
-        this.location=location;
-        this.describe=describe;
-    }
-}

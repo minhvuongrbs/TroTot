@@ -1,4 +1,4 @@
-package trotot.dnvn.cndd.trotot.Navi.menu1;
+package trotot.dnvn.cndd.trotot.Model;
 
 import java.io.Serializable;
 

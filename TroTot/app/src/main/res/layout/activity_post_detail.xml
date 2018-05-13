@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PostDetail.PostDetailActivity"
+    tools:context=".Activities.PostDetailActivity"
     android:id="@+id/activity_post_detail">
     <TextView
         android:id="@+id/post_detail_title"

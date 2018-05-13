@@ -1,10 +1,11 @@
-package trotot.dnvn.cndd.trotot.PostDetail;
+package trotot.dnvn.cndd.trotot.Activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import trotot.dnvn.cndd.trotot.FragmentAdapter.PostDetailAdapter;
 import trotot.dnvn.cndd.trotot.R;
 
 public class PostDetailActivity extends AppCompatActivity  {

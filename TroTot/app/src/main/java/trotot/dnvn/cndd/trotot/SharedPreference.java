@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 
-import trotot.dnvn.cndd.trotot.Dung.Account;
+import trotot.dnvn.cndd.trotot.Model.Account;
 
 public class SharedPreference  {
     private static final String TAG = SharedPreference.class.getSimpleName();
