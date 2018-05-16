@@ -40,7 +40,7 @@ public class InforToPostActivity extends AppCompatActivity {
 
     private static String API="api/v1/post-room";
     private static String LINK = SERVER+API;
-    private ImageView mImageView;
+    private ImageView mImageView1,mImageView2,mImageView3;
     private Button mButtonPost;
     private EditText mEditTextAddress,mEditTextArea,mEditTextElectricRate,mEditTextWaterRate,mEditTextDescribe,mEditTextPhone;
 
@@ -58,7 +58,7 @@ public class InforToPostActivity extends AppCompatActivity {
 
         initGui();
 
-        mImageView.setOnClickListener(new View.OnClickListener() {
+        mImageView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d("log", "click button get image");
@@ -66,6 +66,26 @@ public class InforToPostActivity extends AppCompatActivity {
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
+            }
+        });
+        mImageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("log", "click button get image");
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 2);
+            }
+        });
+        mImageView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("log", "click button get image");
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 3);
             }
         });
         mButtonPost.setOnClickListener(new View.OnClickListener() {
@@ -137,7 +157,9 @@ public class InforToPostActivity extends AppCompatActivity {
     }
 
     private void initGui() {
-        mImageView=findViewById(R.id.image_infor_post);
+        mImageView1=findViewById(R.id.image_infor_post1);
+        mImageView2=findViewById(R.id.image_infor_post2);
+        mImageView3=findViewById(R.id.image_infor_post3);
         mButtonPost=findViewById(R.id.btn_dang_tin);
         mEditTextAddress=findViewById(R.id.edt_Address);
         mEditTextArea=findViewById(R.id.edt_Area);
@@ -157,9 +179,31 @@ public class InforToPostActivity extends AppCompatActivity {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 Log.d("tag bitmap", String.valueOf(bitmap));
+                mImageView1.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (requestCode == 3 && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
+            Uri uri = data.getData();
 
-                mImageView.setImageBitmap(bitmap);
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                Log.d("tag bitmap", String.valueOf(bitmap));
+                mImageView3.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (requestCode == 2 && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            Uri uri = data.getData();
+
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                Log.d("tag bitmap", String.valueOf(bitmap));
+                mImageView2.setImageBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }

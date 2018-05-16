@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import trotot.dnvn.cndd.trotot.Fragment.Menu4Fragment;
+import trotot.dnvn.cndd.trotot.Fragment.Menu5Fragment;
 import trotot.dnvn.cndd.trotot.Model.Account;
 import trotot.dnvn.cndd.trotot.Fragment.Menu1Fragment;
 import trotot.dnvn.cndd.trotot.Fragment.Menu2Fragment;
@@ -57,14 +59,12 @@ public class MainActivity extends AppCompatActivity
         SharedPreference sharedPreference=new SharedPreference(this);
         Account account=(Account) sharedPreference.getUserLogin();
 
-
         mTextViewEmailNaviHeader.setText(account.getEmail());
         mTextViewUsernameNaviHeader.setText(account.getUserName());
-        displayNavigation(R.id.nav_home);
 
+        displayNavigation(R.id.nav_home);
         Log.d("test3","chạy hết create");
     }
-
 
 
     @Override
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.logout) {
             return true;
         }
         Log.d("test6","chạy option item selected");
@@ -113,7 +113,6 @@ public class MainActivity extends AppCompatActivity
     private void displayNavigation(int id) {
 
         Fragment fragment;
-
         if (id == R.id.nav_home) {
             fragment=new Menu1Fragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -134,10 +133,16 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.content_main, fragment);
             ft.commit();
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_support) {
+            fragment=new Menu4Fragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_main, fragment);
+            ft.commit();
+        } else if (id == R.id.nav_about) {
+            fragment=new Menu5Fragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_main, fragment);
+            ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,9 +50,8 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
     private static String LINK = SERVER+API;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    private Spinner mSpinnerLocation;
     private Spinner mSpinnerRate;
-
+    private ImageView mButtonSearch;
     private TextView mTextViewXemThem;
     private Button mButtonPost;
     private List<Data> data=new ArrayList<>();
@@ -73,11 +73,9 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
         mRecyclerView=(RecyclerView) rootView.findViewById(R.id.post);
         mTextViewXemThem=(TextView) rootView.findViewById(R.id.post_xem_them);
         mButtonPost=(Button) rootView.findViewById(R.id.btn_dang_bai);
-        mSpinnerLocation=rootView.findViewById(R.id.spinner_location);
         ArrayAdapter<CharSequence> adapter1=ArrayAdapter.createFromResource(getContext() ,R.array.location,android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mSpinnerLocation.setAdapter(adapter1);
-        mSpinnerLocation.setOnItemSelectedListener(this);
+        mButtonSearch=rootView.findViewById(R.id.btn_search);
 
         mSpinnerRate=rootView.findViewById(R.id.spinner_rate);
         ArrayAdapter<CharSequence> adapter2=ArrayAdapter.createFromResource(getContext() ,R.array.rate,android.R.layout.simple_spinner_item);
