@@ -20,6 +20,9 @@ public class PostDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_post_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.post_detail_third_toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setBackgroundResource(R.color.toobar);
+        getSupportActionBar().setTitle("Trở lại");
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {

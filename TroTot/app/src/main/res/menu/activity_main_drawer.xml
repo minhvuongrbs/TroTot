@@ -29,13 +29,14 @@
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_support"
-                android:icon="@drawable/support"
-                android:title="Trợ giúp" />
-            <item
                 android:id="@+id/nav_about"
                 android:icon="@drawable/introduce"
                 android:title="Giới thiệu" />
+            <item
+                android:id="@+id/nav_support"
+                android:icon="@drawable/support"
+                android:title="Trợ giúp" />
+
         </menu>
     </item>
 

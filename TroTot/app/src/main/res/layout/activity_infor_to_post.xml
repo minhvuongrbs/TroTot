@@ -29,12 +29,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
+            <fragment
+                android:id="@+id/mapToPost"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"/>
             <TextView
                 android:text="Ảnh chi tiết nhà trọ cho thuê:"
                 android:layout_width="match_parent"
@@ -62,6 +67,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp" />
             </LinearLayout>
+
             <TextView
                 android:text="Địa chỉ:"
                 android:layout_width="match_parent"

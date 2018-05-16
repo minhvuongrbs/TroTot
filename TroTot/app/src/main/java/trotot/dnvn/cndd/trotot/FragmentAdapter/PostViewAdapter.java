@@ -43,7 +43,6 @@ public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.Recycl
         holder.username.setText(data.get(position).getUsername());
         holder.address.setText(data.get(position).getAddress());
         holder.time_post.setText(data.get(position).getTimeUp());
-        holder.describe.setText(data.get(position).getDescribe());
         holder.area.setText(data.get(position).getArea());
     }
 
@@ -60,8 +59,8 @@ public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.Recycl
         ImageView image_room;
         ImageView image_profile;
         TextView time_post;
-        TextView describe;
         TextView area;
+        TextView rate;
 
         public RecyclerViewHolder(View itemView){
             super(itemView);
@@ -70,9 +69,8 @@ public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.Recycl
             image_room=itemView.findViewById(R.id.image_room);
             image_profile=itemView.findViewById(R.id.image_profile);
             time_post=itemView.findViewById(R.id.time_post);
-            describe=itemView.findViewById(R.id.txtViewDescribe);
             area=itemView.findViewById(R.id.txtViewArea);
-
+            rate=itemView.findViewById(R.id.txtViewRate);
         }
 
     }

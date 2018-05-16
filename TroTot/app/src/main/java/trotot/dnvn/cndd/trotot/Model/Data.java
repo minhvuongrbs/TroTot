@@ -10,6 +10,15 @@ public class Data {
     private String address;
     private String area;
     private String describe;
+    private String rate;
+
+    public String getRate() {
+        return rate;
+    }
+
+    public void setRate(String rate) {
+        this.rate = rate;
+    }
 
     public String getDescribe() {
         return describe;
@@ -26,15 +35,17 @@ public class Data {
         this.address = null;
         this.area = null;
         this.describe = null;
+        this.rate=null;
     }
 
-    public Data(String timeUp, String username, int imageId, String address, String area, String describe) {
+    public Data(String timeUp, String username, int imageId, String address, String area, String describe,String rate) {
         this.timeUp = timeUp;
         this.username = username;
         this.imageId = imageId;
         this.address = address;
         this.area = area;
         this.describe = describe;
+        this.rate=rate;
     }
 
     public String getTimeUp() {

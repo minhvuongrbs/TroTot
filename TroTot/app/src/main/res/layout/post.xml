@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="15dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
+    android:layout_marginLeft="7dp"
+    android:layout_marginRight="7dp"
     >
 
     <LinearLayout
@@ -28,6 +28,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:textStyle="bold"
                     android:layout_height="wrap_content"
                     android:text="Trần Văn Minh Vương"
                     android:textColor="#000"
@@ -74,7 +75,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_weight="30"
+                android:layout_weight="25"
                 android:layout_marginLeft="10dp"
                 android:textColor="#000"
                 android:text="Diện tích:"
@@ -84,32 +85,39 @@
                 android:id="@+id/txtViewArea"
                 android:textColor="#000"
                 android:text="17 mét vuông"
-                android:layout_weight="70"
+                android:layout_weight="75"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
-
         </LinearLayout>
-        <TextView
-            android:text=""
-            android:textColor="#000"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/txtViewDescribe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
         <LinearLayout
             android:weightSum="100"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
+            <TextView
+                android:layout_weight="25"
+                android:layout_marginLeft="10dp"
+                android:textColor="#000"
+                android:text="Giá phòng:"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/txtViewRate"
+                android:textColor="#000"
+                android:text="700 000 đ"
+                android:layout_weight="75"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
         </LinearLayout>
-
         <Button
+            android:textColor="#f2440a"
+            android:background="@drawable/xemthem_border"
             android:id="@+id/post_xem_them"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:text="xem thêm" />
+
 
         <ImageView
             android:scaleType="fitXY"

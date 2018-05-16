@@ -147,7 +147,7 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                             Log.d("so gia tri","kiem tra "+k);
                             for (int i = 0; i < k; i++) {
                                 JSONObject dataInfor = getData.getJSONObject(i);
-
+                                Log.d("dataInfor", dataInfor.toString());
                                 JSONObject user = dataInfor.getJSONObject("user");
                                 Log.d("user post", user.toString());
                                 data.add(new Data(
@@ -155,8 +155,9 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                                         user.getString("username"),
                                         0,
                                         dataInfor.getString("address"),
-                                        dataInfor.getString("acreage"),
-                                        dataInfor.getString("description")
+                                        dataInfor.getString("acreage")+"  mét vuông",
+                                        dataInfor.getString("description"),
+                                        "700 000"+" đ"
                                 ));
                                 mAdapter.notifyDataSetChanged();
                             }

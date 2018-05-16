@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import trotot.dnvn.cndd.trotot.Activities.LoginActivity;
 import trotot.dnvn.cndd.trotot.Fragment.Menu4Fragment;
 import trotot.dnvn.cndd.trotot.Fragment.Menu5Fragment;
 import trotot.dnvn.cndd.trotot.Model.Account;
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logout) {
-            return true;
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
         Log.d("test6","chạy option item selected");
         return super.onOptionsItemSelected(item);
@@ -133,12 +134,12 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.content_main, fragment);
             ft.commit();
 
-        } else if (id == R.id.nav_support) {
+        } else if (id == R.id.nav_about) {
             fragment=new Menu4Fragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_main, fragment);
             ft.commit();
-        } else if (id == R.id.nav_about) {
+        } else if (id == R.id.nav_support) {
             fragment=new Menu5Fragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_main, fragment);
