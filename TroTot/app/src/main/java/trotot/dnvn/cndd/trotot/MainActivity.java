@@ -14,7 +14,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import trotot.dnvn.cndd.trotot.Activities.LoginActivity;
 import trotot.dnvn.cndd.trotot.Fragment.Menu4Fragment;
@@ -24,10 +27,13 @@ import trotot.dnvn.cndd.trotot.Fragment.Menu1Fragment;
 import trotot.dnvn.cndd.trotot.Fragment.Menu2Fragment;
 import trotot.dnvn.cndd.trotot.Fragment.Menu3Fragment;
 
+import static trotot.dnvn.cndd.trotot.Activities.LoginActivity.SERVER;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private TextView mTextViewUsernameNaviHeader;
     private TextView mTextViewEmailNaviHeader;
+    private ImageView mImageView;
 
 
     @Override
@@ -55,6 +61,7 @@ public class MainActivity extends AppCompatActivity
         View headerView = navigationView.getHeaderView(0);
         mTextViewUsernameNaviHeader=headerView.findViewById(R.id.usernameNaviHeader);
         mTextViewEmailNaviHeader=headerView.findViewById(R.id.emailNaviHeader);
+        mImageView=headerView.findViewById(R.id.imageView);
 
         Intent intent=getIntent();
         SharedPreference sharedPreference=new SharedPreference(this);
@@ -62,6 +69,7 @@ public class MainActivity extends AppCompatActivity
 
         mTextViewEmailNaviHeader.setText(account.getEmail());
         mTextViewUsernameNaviHeader.setText(account.getUserName());
+        Picasso.with(this).load(SERVER+account.getImage()).into(mImageView);
 
         displayNavigation(R.id.nav_home);
         Log.d("test3","chạy hết create");

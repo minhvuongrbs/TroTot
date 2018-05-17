@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -62,12 +64,14 @@ public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.Recycl
         holder.time_post.setText(data.get(position).getTimeUp());
         holder.area.setText(data.get(position).getArea());
         holder.rate.setText(data.get(position).getRate());
-        String src=SERVER+data.get(position).getImage();
-        Log.d("src",src);
-        new LoadImageTask(this).execute(src);
+        String src_room=SERVER+data.get(position).getImage();
+        Log.d("src",src_room);
+        String src_profile=SERVER+data.get(position).getImage_user();
+        new LoadImageTask(this).execute(src_room);
 //        holder.image_room.setImageBitmap(image_room);
-        holder.image_room.setImageResource(R.drawable.room1);
-        holder.image_profile.setImageResource(R.drawable.user);
+//        holder.image_room.setImageResource(R.drawable.room1);
+        Picasso.with(context).load(src_profile).into(holder.image_profile);
+        Picasso.with(context).load(src_room).into(holder.image_room);
     }
 
     @Override
