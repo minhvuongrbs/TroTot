@@ -18,6 +18,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.greenrobot.eventbus.EventBus;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -65,21 +66,26 @@ public class PostDetailActivity extends AppCompatActivity{
                     JSONObject getDatabase=response.getJSONObject("data");
                     JSONObject user=getDatabase.getJSONObject("user");
                     Log.d("tag", getDatabase.toString());
-
+                    JSONArray galleryA=getDatabase.getJSONArray("gallery");
+                    JSONObject gallery=galleryA.getJSONObject(0);
                     data.add(new Data(
                             getDatabase.getString("created_at"),
                             user.getString("username"),
-                            0,
+                            gallery.getString("path"),
                             getDatabase.getString("address"),
-                            getDatabase.getString("acreage")+"  mét vuông",
+                            getDatabase.getString("acreage"),
                             getDatabase.getString("description"),
-                            getDatabase.getString("rate")+" đ",
+                            getDatabase.getString("rate"),
                             getDatabase.getInt("id"),
                             getDatabase.getDouble("longitude"),
                             getDatabase.getDouble("latitude"),
-                            user.getString("name")
+                            user.getString("name"),
+                            getDatabase.getString("phone"),
+                            getDatabase.getString("water_bill"),
+                            getDatabase.getString("electric_bill"),
+                            user.getString("image")
                     ));
-
+                    Log.d("data",data.toString());
                     EventBus.getDefault().postSticky(new FileTransfer(data));
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -67,13 +67,13 @@ public class PostDetailSecondFragment extends Fragment {
         Log.d("second", fileTransfer.getData().get(0).getAddress());
 
         mTextViewAddress.setText(fileTransfer.getData().get(0).getAddress());
-        mTextViewArea.setText(fileTransfer.getData().get(0).getArea());
-//        mTextViewWaterRate.setText(fileTransfer.getData().get(0).getAddress());
+        mTextViewArea.setText(fileTransfer.getData().get(0).getArea()+" m2");
+        mTextViewWaterRate.setText(fileTransfer.getData().get(0).getWater_bill()+" đ");
         mTextViewDescribe.setText(fileTransfer.getData().get(0).getDescribe());
-//        mTextViewPhone.setText(fileTransfer.getData().get(0).getAddress());
-//        mTextViewName.setText(fileTransfer.getData().get(0).getAddress());
-        mTextViewRate.setText(fileTransfer.getData().get(0).getRate());
-//        mTextViewElectricRate.setText(fileTransfer.getData().get(0).getAddress());
+        mTextViewPhone.setText(fileTransfer.getData().get(0).getPhone());
+        mTextViewName.setText(fileTransfer.getData().get(0).getName());
+        mTextViewRate.setText(fileTransfer.getData().get(0).getRate()+" đ");
+        mTextViewElectricRate.setText(fileTransfer.getData().get(0).getElectric_bill()+" đ");
 
         EventBus.getDefault().removeStickyEvent(fileTransfer);
     }

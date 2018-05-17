@@ -26,7 +26,7 @@
 
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Cộng đồng">
         <menu>
             <item
                 android:id="@+id/nav_about"

@@ -2,6 +2,7 @@ package trotot.dnvn.cndd.trotot.Fragment;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -37,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import trotot.dnvn.cndd.trotot.Activities.InforToPostActivity;
+import trotot.dnvn.cndd.trotot.AsyncTask.LoadImageTask;
 import trotot.dnvn.cndd.trotot.FragmentAdapter.PostViewAdapter;
 import trotot.dnvn.cndd.trotot.Activities.PostDetailActivity;
 import trotot.dnvn.cndd.trotot.Model.Data;
@@ -45,7 +47,7 @@ import trotot.dnvn.cndd.trotot.R;
 import static trotot.dnvn.cndd.trotot.Activities.LoginActivity.SERVER;
 
 
-public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelectedListener {
+public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelectedListener,LoadImageTask.Listener {
 
     private static String API="api/v1/post-room";
     private static String LINK = SERVER+API;
@@ -68,7 +70,7 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                              Bundle savedInstanceState) {
         Log.d("cho thue","vao create cho thue");
 
-        View rootView=inflater.inflate(R.layout.fragment_menu1, container, false);
+        final View rootView=inflater.inflate(R.layout.fragment_menu1, container, false);
 
         //    recycler view for post
         mRecyclerView=(RecyclerView) rootView.findViewById(R.id.post);
@@ -105,6 +107,7 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                 getActivity().startActivity(intent);
             }
         });
+
         return rootView;
     }
 
@@ -117,7 +120,7 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("get post","chay den day");
+                        Log.d("jsonobject",response.toString());
                         try {
                             JSONObject jsonObject = response.getJSONObject("data");
                             Log.d("response post", jsonObject.toString());
@@ -128,11 +131,15 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                                 JSONObject dataInfor = getData.getJSONObject(i);
                                 Log.d("dataInfor", dataInfor.toString());
                                 JSONObject user = dataInfor.getJSONObject("user");
+//                                JSONObject gallery=dataInfor.getJSONObject("gallery");
+                                JSONArray galleryA=dataInfor.getJSONArray("gallery");
+                                JSONObject gallery=galleryA.getJSONObject(0);
+
                                 Log.d("user post", user.toString());
                                 data.add(new Data(
                                         dataInfor.getString("created"),
                                         user.getString("username"),
-                                        0,
+                                        gallery.getString("path"),
                                         dataInfor.getString("address"),
                                         dataInfor.getString("acreage")+"  mét vuông",
                                         dataInfor.getString("description"),
@@ -140,7 +147,11 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                                         dataInfor.getInt("id"),
                                         dataInfor.getDouble("longitude"),
                                         dataInfor.getDouble("latitude"),
-                                        null
+                                        null,
+                                        dataInfor.getString("phone"),
+                                        dataInfor.getString("water_bill"),
+                                        dataInfor.getString("electric_bill"),
+                                        user.getString("image")
                                 ));
                                 mRecyclerView.setAdapter(mAdapter);
                                 mAdapter.notifyDataSetChanged();
@@ -172,6 +183,16 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+    @Override
+    public void onImageLoaded(Bitmap bitmap) {
+
+    }
+
+    @Override
+    public void onError() {
 
     }
 }

@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -44,6 +45,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -73,9 +76,11 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
     private static double longitude;
     // Mã yêu cầu uhỏi người dùng cho phép xem vị trí hiện tại của họ (***).
     // Giá trị mã 8bit (value < 256).
+    private static String path1=null,path2=null,path3=null;
     public static final int REQUEST_ID_ACCESS_COURSE_FINE_LOCATION = 100;
     private static String API = "api/v1/post-room";
     private static String API_IMAGE_UPLOAD = SERVER +  "api/v1/media/upload-files";
+//    private static String[] gallery;
     private static String LINK = SERVER + API;
     private ImageView mImageView1, mImageView2, mImageView3;
     private Button mButtonPost;
@@ -154,6 +159,8 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
                 clickPost();
             }
         });
+
+//        gallery= new String[]{path1, path2, path3};
     }
 
     private void clickPost() {
@@ -216,6 +223,7 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
                     params.put("rate", rate);
                     params.put("longitude",Double.toString(longitude));
                     params.put("latitude",Double.toString(latitude));
+                    params.put("gallery[]",path1);
 
                     Log.d("paranms", "get params successful");
                     return params;
@@ -249,6 +257,7 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
         mEditTextRate=findViewById(R.id.edt_Rate);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -274,6 +283,7 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
                     @Override
                     public void onResponse(String response) {
                         Log.d("tag1", response.toString());
+                        path1=response.toString();
                     }
                 },file, stringMap);
                 RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -304,7 +314,7 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
                 }, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("tag1", response.toString());
+                        path3=response.toString();
                     }
                 },file, stringMap);
                 RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -319,7 +329,6 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
             final Uri uri = data.getData();
 
             try {
-
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 Log.d("tag bitmap", String.valueOf(bitmap));
 
@@ -335,7 +344,7 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
                 }, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("tag1", response.toString());
+                        path2=response.toString();
                     }
                 },file, stringMap);
                 RequestQueue requestQueue = Volley.newRequestQueue(this);
