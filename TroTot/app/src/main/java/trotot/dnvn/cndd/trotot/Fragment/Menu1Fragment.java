@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.common.api.Api;
 import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
@@ -89,7 +90,7 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
         initData();
         Log.d("cho thue","sau khi keo du lieu");
 
-        mAdapter=new PostViewAdapter(data);
+        mAdapter=new PostViewAdapter(data,getContext());
         Log.d("cho thue","set du lieu");
         LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -104,24 +105,24 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                 getActivity().startActivity(intent);
             }
         });
-        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-            @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-                Intent intent=new Intent(getContext(), PostDetailActivity.class);
-                getActivity().startActivity(intent);
-                return false;
-            }
-
-            @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-            }
-        });
+//        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+//            @Override
+//            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+//                Intent intent=new Intent(getContext(), PostDetailActivity.class);
+//                getActivity().startActivity(intent);
+//                return false;
+//            }
+//
+//            @Override
+//            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+//
+//            }
+//
+//            @Override
+//            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+//
+//            }
+//        });
 
         // Inflate the layout for this fragment
         return rootView;
@@ -142,7 +143,6 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                             JSONObject jsonObject = response.getJSONObject("data");
                             Log.d("response post", jsonObject.toString());
                             JSONArray getData=jsonObject.getJSONArray("data");
-
                             k = getData.length();
                             Log.d("so gia tri","kiem tra "+k);
                             for (int i = 0; i < k; i++) {
@@ -157,7 +157,8 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                                         dataInfor.getString("address"),
                                         dataInfor.getString("acreage")+"  mét vuông",
                                         dataInfor.getString("description"),
-                                        "700 000"+" đ"
+                                        "700 000"+" đ",
+                                        dataInfor.getInt("id")
                                 ));
                                 mAdapter.notifyDataSetChanged();
                             }

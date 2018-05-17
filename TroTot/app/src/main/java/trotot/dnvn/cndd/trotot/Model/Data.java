@@ -11,6 +11,15 @@ public class Data {
     private String area;
     private String describe;
     private String rate;
+    private int postId;
+
+    public int getPostId() {
+        return postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
 
     public String getRate() {
         return rate;
@@ -36,9 +45,10 @@ public class Data {
         this.area = null;
         this.describe = null;
         this.rate=null;
+        this.postId=0;
     }
 
-    public Data(String timeUp, String username, int imageId, String address, String area, String describe,String rate) {
+    public Data(String timeUp, String username, int imageId, String address, String area, String describe,String rate,int postId) {
         this.timeUp = timeUp;
         this.username = username;
         this.imageId = imageId;
@@ -46,6 +56,7 @@ public class Data {
         this.area = area;
         this.describe = describe;
         this.rate=rate;
+        this.postId=postId;
     }
 
     public String getTimeUp() {

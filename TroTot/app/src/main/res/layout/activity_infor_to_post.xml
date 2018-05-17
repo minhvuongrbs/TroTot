@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
     tools:context=".Activities.InforToPostActivity"
     android:orientation="vertical">
 
@@ -17,13 +19,14 @@
     </android.support.v7.widget.Toolbar>
 
     <TextView
-        android:textSize="30dp"
+        android:textSize="35dp"
         android:gravity="center"
         android:text="Thông tin bài đăng"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <ScrollView
+        android:paddingTop="8dp"
         android:padding="5dp"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
@@ -77,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="Diện tích:"
+                android:text="Diện tích(m2):"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
@@ -85,7 +88,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="Tiền điện:"
+                android:text="Giá phòng(vnđ):"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/edt_Rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="Tiền điện(vnđ):"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
@@ -93,7 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="Tiền nước:"
+                android:text="Tiền nước(vnđ):"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
@@ -101,7 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
-                android:text="Điện thoại"
+                android:text="Điện thoại:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText

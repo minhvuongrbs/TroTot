@@ -1,16 +1,20 @@
 package trotot.dnvn.cndd.trotot.FragmentAdapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import trotot.dnvn.cndd.trotot.Activities.PostDetailActivity;
 import trotot.dnvn.cndd.trotot.Model.Data;
 import trotot.dnvn.cndd.trotot.R;
 
@@ -20,10 +24,12 @@ import trotot.dnvn.cndd.trotot.R;
 
 public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.RecyclerViewHolder>{
     private List<Data> data=new ArrayList<>();
+    private Context context;
 
 
-    public PostViewAdapter(List<Data> data) {
+    public PostViewAdapter(List<Data> data,Context context) {
         this.data=data;
+        this.context=context;
     }
 
     @NonNull
@@ -44,6 +50,7 @@ public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.Recycl
         holder.address.setText(data.get(position).getAddress());
         holder.time_post.setText(data.get(position).getTimeUp());
         holder.area.setText(data.get(position).getArea());
+        holder.rate.setText(data.get(position).getRate());
     }
 
     @Override
@@ -61,6 +68,7 @@ public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.Recycl
         TextView time_post;
         TextView area;
         TextView rate;
+        Button xemthem;
 
         public RecyclerViewHolder(View itemView){
             super(itemView);
@@ -71,7 +79,18 @@ public class PostViewAdapter extends RecyclerView.Adapter<PostViewAdapter.Recycl
             time_post=itemView.findViewById(R.id.time_post);
             area=itemView.findViewById(R.id.txtViewArea);
             rate=itemView.findViewById(R.id.txtViewRate);
+            xemthem= itemView.findViewById(R.id.post_xem_them);
+
+            xemthem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent=new Intent(context, PostDetailActivity.class);
+                    intent.putExtra("idPost",data.get(getAdapterPosition()).getPostId());
+                    context.startActivity(intent);
+                }
+            });
         }
+
 
     }
 }

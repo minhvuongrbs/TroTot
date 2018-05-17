@@ -60,7 +60,6 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
     private ProgressDialog myProgress;
 
     private static final String MYTAG = "MYTAG";
-
     private static double latitude;
     private static double longitude;
     // Mã yêu cầu uhỏi người dùng cho phép xem vị trí hiện tại của họ (***).
@@ -70,7 +69,7 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
     private static String LINK = SERVER + API;
     private ImageView mImageView1, mImageView2, mImageView3;
     private Button mButtonPost;
-    private EditText mEditTextAddress, mEditTextArea, mEditTextElectricRate, mEditTextWaterRate, mEditTextDescribe, mEditTextPhone;
+    private EditText mEditTextAddress, mEditTextArea, mEditTextElectricRate, mEditTextWaterRate, mEditTextDescribe, mEditTextPhone,mEditTextRate;
 
 
     @Override
@@ -168,6 +167,8 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
         final String waterRate = mEditTextWaterRate.getText().toString();
         final String describe = mEditTextDescribe.getText().toString();
         final String phone = mEditTextPhone.getText().toString();
+        final String rate = mEditTextRate.getText().toString();
+
         Log.d("address", "address" + address);
 
         if (address.length() == 0 || area.length() == 0 || electricRate.length() == 0 || waterRate.length() == 0 || describe.length() == 0 || phone.length() == 0) {
@@ -202,6 +203,7 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
                     params.put("electric_bill", electricRate);
                     params.put("water_bill", waterRate);
                     params.put("description", describe);
+                    params.put("rate", rate);
                     params.put("longitude",Double.toString(longitude));
                     params.put("latitude",Double.toString(latitude));
 
@@ -234,6 +236,7 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
         mEditTextWaterRate = findViewById(R.id.edt_water_rate);
         mEditTextPhone = findViewById(R.id.edt_phone);
         mEditTextDescribe = findViewById(R.id.describe);
+        mEditTextRate=findViewById(R.id.edt_Rate);
     }
 
     @Override
@@ -447,7 +450,7 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
             // Thêm Marker cho Map:
             MarkerOptions option = new MarkerOptions();
             option.title("My Location");
-            option.snippet("....");
+//            option.snippet("....");
             option.position(latLng);
             Marker currentMarker = myMap.addMarker(option);
             currentMarker.showInfoWindow();
