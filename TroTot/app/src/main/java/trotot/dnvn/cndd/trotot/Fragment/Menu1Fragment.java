@@ -96,7 +96,7 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setAdapter(mAdapter);
+
 
         mButtonPost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,26 +105,6 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                 getActivity().startActivity(intent);
             }
         });
-//        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-//            @Override
-//            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-//                Intent intent=new Intent(getContext(), PostDetailActivity.class);
-//                getActivity().startActivity(intent);
-//                return false;
-//            }
-//
-//            @Override
-//            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-//
-//            }
-//        });
-
-        // Inflate the layout for this fragment
         return rootView;
     }
 
@@ -132,7 +112,6 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
         Log.d("cho thue","vao initdata");
         RequestQueue requestQueue= Volley.newRequestQueue(getContext());
         Log.d("cho thue","sau requestQueue");
-
 
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, LINK, null,
                 new Response.Listener<JSONObject>() {
@@ -151,16 +130,21 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                                 JSONObject user = dataInfor.getJSONObject("user");
                                 Log.d("user post", user.toString());
                                 data.add(new Data(
-                                        dataInfor.getString("created_at"),
+                                        dataInfor.getString("created"),
                                         user.getString("username"),
                                         0,
                                         dataInfor.getString("address"),
                                         dataInfor.getString("acreage")+"  mét vuông",
                                         dataInfor.getString("description"),
-                                        "700 000"+" đ",
-                                        dataInfor.getInt("id")
+                                        Integer.toString(dataInfor.getInt("rate"))+" đ",
+                                        dataInfor.getInt("id"),
+                                        dataInfor.getDouble("longitude"),
+                                        dataInfor.getDouble("latitude"),
+                                        null
                                 ));
+                                mRecyclerView.setAdapter(mAdapter);
                                 mAdapter.notifyDataSetChanged();
+
                             }
                         }catch(JSONException e){
                                 e.printStackTrace();

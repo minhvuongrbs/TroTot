@@ -26,12 +26,14 @@
             android:textSize="15dp"
             />
         <TextView
+            android:id="@+id/second_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="48 Trần Văn Kỹ"
             android:textSize="15dp"
             />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,6 +45,26 @@
             android:textSize="15dp"
             />
         <TextView
+            android:id="@+id/second_rate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1000 000d"
+            android:textSize="15dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Diện tích:"
+            android:textSize="15dp"
+            />
+        <TextView
+            android:id="@+id/second_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="25 m*m"
@@ -60,6 +82,7 @@
             android:textSize="15dp"
             />
         <TextView
+            android:id="@+id/second_elec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="2000 k/chữ"
@@ -77,6 +100,7 @@
             android:textSize="15dp"
             />
         <TextView
+            android:id="@+id/second_water"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="2000 k/chữ"
@@ -84,23 +108,7 @@
             />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Vệ sinh:"
-            android:textSize="15dp"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="free"
-            android:textSize="15dp"
-            />
-    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -113,6 +121,7 @@
             android:textSize="15dp"
             />
         <TextView
+            android:id="@+id/second_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Vương Nghĩa"
@@ -130,9 +139,29 @@
             android:text="Điện thoại:"
             android:textSize="15dp" />
         <TextView
+            android:id="@+id/second_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="094xxxxxxxx"
+            android:textSize="15dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Mô tả thêm:"
+            android:textSize="15dp"
+            />
+        <TextView
+            android:id="@+id/second_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1000 000d"
             android:textSize="15dp"
             />
     </LinearLayout>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,11 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import trotot.dnvn.cndd.trotot.Model.FileTransfer;
 import trotot.dnvn.cndd.trotot.R;
 
 
@@ -27,6 +33,8 @@ import trotot.dnvn.cndd.trotot.R;
 public class PostDetailThirdFragment extends Fragment implements OnMapReadyCallback{
 
     private GoogleMap mMap;
+    private static double lat,lon;
+    private String name;
     public PostDetailThirdFragment() {
 
     }
@@ -45,10 +53,31 @@ public class PostDetailThirdFragment extends Fragment implements OnMapReadyCallb
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        LatLng hcm = new LatLng(10.762622, 106.660172);
+
+
+        LatLng current = new LatLng(lat, lon);
         mMap = googleMap;
-        mMap.addMarker(new MarkerOptions().position(hcm).title("Minh Vương").snippet("demo tp hcm"));
-        CameraPosition cp = new CameraPosition.Builder().target(hcm).zoom(13).build();
+        mMap.addMarker(new MarkerOptions().position(current).title(name));
+        CameraPosition cp = new CameraPosition.Builder().target(current).zoom(16).build();
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cp));
+    }
+
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void onEvent(FileTransfer fileTransfer) {
+        lat=fileTransfer.getData().get(0).getLatitude();
+        lon=fileTransfer.getData().get(0).getLongitude();
+        name=fileTransfer.getData().get(0).getName();
+        EventBus.getDefault().removeStickyEvent(fileTransfer);
     }
 }

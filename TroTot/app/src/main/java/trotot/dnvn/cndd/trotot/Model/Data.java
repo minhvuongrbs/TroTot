@@ -12,6 +12,37 @@ public class Data {
     private String describe;
     private String rate;
     private int postId;
+    private double longitude;
+    private double latitude;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Data(Builder builder) {
+
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
 
     public int getPostId() {
         return postId;
@@ -46,9 +77,12 @@ public class Data {
         this.describe = null;
         this.rate=null;
         this.postId=0;
+        this.longitude=0;
+        this.latitude=0;
+        this.name=null;
     }
 
-    public Data(String timeUp, String username, int imageId, String address, String area, String describe,String rate,int postId) {
+    public Data(String timeUp, String username, int imageId, String address, String area, String describe,String rate,int postId,double longitude,double latitude,String name) {
         this.timeUp = timeUp;
         this.username = username;
         this.imageId = imageId;
@@ -57,6 +91,31 @@ public class Data {
         this.describe = describe;
         this.rate=rate;
         this.postId=postId;
+        this.longitude=longitude;
+        this.latitude=latitude;
+        this.name=name;
+    }
+
+    public static class Builder {
+
+        private String timeUp;
+        private String username;
+        private int imageId;
+        private String address;
+        private String area;
+        private String describe;
+        private String rate;
+        private int postId;
+        private double longitude;
+        private double latitude;
+        private String name;
+        public Builder() {
+
+        }
+
+        public Data build() {
+            return new Data(this);
+        }
     }
 
     public String getTimeUp() {

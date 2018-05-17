@@ -1,6 +1,6 @@
 package trotot.dnvn.cndd.trotot.Activities;
 
-import android.content.Context;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,21 +17,33 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import trotot.dnvn.cndd.trotot.Fragment.PostDetailSecondFragment;
 import trotot.dnvn.cndd.trotot.FragmentAdapter.PostDetailAdapter;
 import trotot.dnvn.cndd.trotot.MainActivity;
 import trotot.dnvn.cndd.trotot.Model.Data;
+import trotot.dnvn.cndd.trotot.Model.FileTransfer;
 import trotot.dnvn.cndd.trotot.R;
 
 import static trotot.dnvn.cndd.trotot.Activities.LoginActivity.SERVER;
 
-public class PostDetailActivity extends AppCompatActivity {
+public class PostDetailActivity extends AppCompatActivity{
     private static String API="api/v1/post-room";
     private static String LINK = SERVER+API;
     private static int idPost;
+    private List<Data> data=new ArrayList<>();
+
+
+    public interface OnSelectedListener {
+        public void onSelected(String value);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +53,47 @@ public class PostDetailActivity extends AppCompatActivity {
         idPost=getIntent().getIntExtra("idPost",0);
         Log.d("test api",Integer.toString(idPost));
         getThing();
-
     }
 
     private void getThing() {
-        Log.d("api cua post",LINK+"/"+Integer.toString(idPost));
+        final RequestQueue requestQueue=Volley.newRequestQueue(this);
+
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, LINK+"/"+idPost, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONObject getDatabase=response.getJSONObject("data");
+                    JSONObject user=getDatabase.getJSONObject("user");
+                    Log.d("tag", getDatabase.toString());
+
+                    data.add(new Data(
+                            getDatabase.getString("created_at"),
+                            user.getString("username"),
+                            0,
+                            getDatabase.getString("address"),
+                            getDatabase.getString("acreage")+"  mét vuông",
+                            getDatabase.getString("description"),
+                            getDatabase.getString("rate")+" đ",
+                            getDatabase.getInt("id"),
+                            getDatabase.getDouble("longitude"),
+                            getDatabase.getDouble("latitude"),
+                            user.getString("name")
+                    ));
+
+                    EventBus.getDefault().postSticky(new FileTransfer(data));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }
+        );
+        requestQueue.add(jsonObjectRequest);
 
     }
 
@@ -95,4 +142,5 @@ public class PostDetailActivity extends AppCompatActivity {
             }
         });
     }
+
 }
