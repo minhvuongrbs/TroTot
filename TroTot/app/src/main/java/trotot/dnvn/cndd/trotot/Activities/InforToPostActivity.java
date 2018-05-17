@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.location.Criteria;
 import android.location.Location;
@@ -43,14 +44,22 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
 import trotot.dnvn.cndd.trotot.Model.Account;
 import trotot.dnvn.cndd.trotot.MainActivity;
 import trotot.dnvn.cndd.trotot.R;
 import trotot.dnvn.cndd.trotot.SharedPreference;
+import trotot.dnvn.cndd.trotot.helper.UriUtils;
+import trotot.dnvn.cndd.trotot.volley.MultipartRequest;
 
 import static trotot.dnvn.cndd.trotot.Activities.LoginActivity.SERVER;
 
@@ -66,6 +75,7 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
     // Giá trị mã 8bit (value < 256).
     public static final int REQUEST_ID_ACCESS_COURSE_FINE_LOCATION = 100;
     private static String API = "api/v1/post-room";
+    private static String API_IMAGE_UPLOAD = SERVER +  "api/v1/media/upload-files";
     private static String LINK = SERVER + API;
     private ImageView mImageView1, mImageView2, mImageView3;
     private Button mButtonPost;
@@ -249,6 +259,26 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 Log.d("tag bitmap", String.valueOf(bitmap));
+
+
+                File file = new File(UriUtils.getPath(this, uri));
+
+                Map<String, String> stringMap = new Hashtable<>();
+                MultipartRequest multipartRequest = new MultipartRequest(API_IMAGE_UPLOAD, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("tag1", error.getMessage());
+
+                    }
+                }, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("tag1", response.toString());
+                    }
+                },file, stringMap);
+                RequestQueue requestQueue = Volley.newRequestQueue(this);
+                requestQueue.add(multipartRequest);
+
                 mImageView1.setImageBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -261,6 +291,24 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 Log.d("tag bitmap", String.valueOf(bitmap));
+
+                File file = new File(UriUtils.getPath(this,uri));
+
+                Map<String, String> stringMap = new Hashtable<>();
+                MultipartRequest multipartRequest = new MultipartRequest(API_IMAGE_UPLOAD, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("tag1", error.getMessage());
+
+                    }
+                }, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("tag1", response.toString());
+                    }
+                },file, stringMap);
+                RequestQueue requestQueue = Volley.newRequestQueue(this);
+                requestQueue.add(multipartRequest);
                 mImageView3.setImageBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -268,11 +316,30 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
         }
         if (requestCode == 2 && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
-            Uri uri = data.getData();
+            final Uri uri = data.getData();
 
             try {
+
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 Log.d("tag bitmap", String.valueOf(bitmap));
+
+                File file = new File(UriUtils.getPath(this, uri));
+
+                Map<String, String> stringMap = new Hashtable<>();
+                MultipartRequest multipartRequest = new MultipartRequest(API_IMAGE_UPLOAD, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("tag1", error.getMessage());
+
+                    }
+                }, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("tag1", response.toString());
+                    }
+                },file, stringMap);
+                RequestQueue requestQueue = Volley.newRequestQueue(this);
+                requestQueue.add(multipartRequest);
                 mImageView2.setImageBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -311,6 +378,18 @@ public class InforToPostActivity extends AppCompatActivity implements LocationLi
             return;
         }
         myMap.setMyLocationEnabled(true);
+    }
+
+    public String getPath(Uri uri)
+    {
+        String[] projection = { MediaStore.Images.Media.DATA };
+        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+        if (cursor == null) return null;
+        int column_index =             cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        String s=cursor.getString(column_index);
+        cursor.close();
+        return s;
     }
 
 
