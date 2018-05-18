@@ -2,6 +2,7 @@ package trotot.dnvn.cndd.trotot.Fragment;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +27,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.common.api.Api;
 import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
@@ -35,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import trotot.dnvn.cndd.trotot.Activities.InforToPostActivity;
+import trotot.dnvn.cndd.trotot.AsyncTask.LoadImageTask;
 import trotot.dnvn.cndd.trotot.FragmentAdapter.PostViewAdapter;
 import trotot.dnvn.cndd.trotot.Activities.PostDetailActivity;
 import trotot.dnvn.cndd.trotot.Model.Data;
@@ -43,15 +47,14 @@ import trotot.dnvn.cndd.trotot.R;
 import static trotot.dnvn.cndd.trotot.Activities.LoginActivity.SERVER;
 
 
-public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelectedListener {
+public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelectedListener,LoadImageTask.Listener {
 
     private static String API="api/v1/post-room";
     private static String LINK = SERVER+API;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    private Spinner mSpinnerLocation;
     private Spinner mSpinnerRate;
-
+    private ImageView mButtonSearch;
     private TextView mTextViewXemThem;
     private Button mButtonPost;
     private List<Data> data=new ArrayList<>();
@@ -67,17 +70,15 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                              Bundle savedInstanceState) {
         Log.d("cho thue","vao create cho thue");
 
-        View rootView=inflater.inflate(R.layout.fragment_menu1, container, false);
+        final View rootView=inflater.inflate(R.layout.fragment_menu1, container, false);
 
         //    recycler view for post
         mRecyclerView=(RecyclerView) rootView.findViewById(R.id.post);
         mTextViewXemThem=(TextView) rootView.findViewById(R.id.post_xem_them);
         mButtonPost=(Button) rootView.findViewById(R.id.btn_dang_bai);
-        mSpinnerLocation=rootView.findViewById(R.id.spinner_location);
         ArrayAdapter<CharSequence> adapter1=ArrayAdapter.createFromResource(getContext() ,R.array.location,android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mSpinnerLocation.setAdapter(adapter1);
-        mSpinnerLocation.setOnItemSelectedListener(this);
+        mButtonSearch=rootView.findViewById(R.id.btn_search);
 
         mSpinnerRate=rootView.findViewById(R.id.spinner_rate);
         ArrayAdapter<CharSequence> adapter2=ArrayAdapter.createFromResource(getContext() ,R.array.rate,android.R.layout.simple_spinner_item);
@@ -91,13 +92,15 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
         initData();
         Log.d("cho thue","sau khi keo du lieu");
 
-        mAdapter=new PostViewAdapter(data);
+        mAdapter=new PostViewAdapter(data,getContext());
         Log.d("cho thue","set du lieu");
         LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(mAdapter);
+        mAdapter.notifyDataSetChanged();
+
 
         mButtonPost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,26 +109,6 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                 getActivity().startActivity(intent);
             }
         });
-        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-            @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-                Intent intent=new Intent(getContext(), PostDetailActivity.class);
-                getActivity().startActivity(intent);
-                return false;
-            }
-
-            @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-            }
-        });
-
-        // Inflate the layout for this fragment
         return rootView;
     }
 
@@ -134,33 +117,46 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
         RequestQueue requestQueue= Volley.newRequestQueue(getContext());
         Log.d("cho thue","sau requestQueue");
 
-
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, LINK, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("get post","chay den day");
+                        Log.d("jsonobject",response.toString());
                         try {
                             JSONObject jsonObject = response.getJSONObject("data");
                             Log.d("response post", jsonObject.toString());
                             JSONArray getData=jsonObject.getJSONArray("data");
-
                             k = getData.length();
                             Log.d("so gia tri","kiem tra "+k);
                             for (int i = 0; i < k; i++) {
                                 JSONObject dataInfor = getData.getJSONObject(i);
-
+                                Log.d("dataInfor", dataInfor.toString());
                                 JSONObject user = dataInfor.getJSONObject("user");
+//                                JSONObject gallery=dataInfor.getJSONObject("gallery");
+                                JSONArray galleryA=dataInfor.getJSONArray("gallery");
+                                JSONObject gallery=galleryA.getJSONObject(0);
+
                                 Log.d("user post", user.toString());
                                 data.add(new Data(
-                                        dataInfor.getString("created_at"),
+                                        dataInfor.getString("created"),
                                         user.getString("username"),
-                                        0,
+                                        gallery.getString("path"),
                                         dataInfor.getString("address"),
-                                        dataInfor.getString("acreage"),
-                                        dataInfor.getString("description")
+                                        dataInfor.getString("acreage")+"  mét vuông",
+                                        dataInfor.getString("description"),
+                                        Integer.toString(dataInfor.getInt("rate"))+" đ",
+                                        dataInfor.getInt("id"),
+                                        dataInfor.getDouble("longitude"),
+                                        dataInfor.getDouble("latitude"),
+                                        null,
+                                        dataInfor.getString("phone"),
+                                        dataInfor.getString("water_bill"),
+                                        dataInfor.getString("electric_bill"),
+                                        user.getString("image")
                                 ));
+                                mRecyclerView.setAdapter(mAdapter);
                                 mAdapter.notifyDataSetChanged();
+
                             }
                         }catch(JSONException e){
                                 e.printStackTrace();
@@ -188,6 +184,16 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+    @Override
+    public void onImageLoaded(Bitmap bitmap) {
+
+    }
+
+    @Override
+    public void onError() {
 
     }
 }

@@ -26,16 +26,17 @@
 
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Cộng đồng">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
+                android:id="@+id/nav_about"
+                android:icon="@drawable/introduce"
                 android:title="Giới thiệu" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
+                android:id="@+id/nav_support"
+                android:icon="@drawable/support"
                 android:title="Trợ giúp" />
+
         </menu>
     </item>
 

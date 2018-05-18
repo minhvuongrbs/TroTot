@@ -6,12 +6,10 @@
     tools:context=".Fragment.PostDetailThirdFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_gravity="center"
-        android:textAlignment="center"
+    <fragment
+        android:id="@+id/mapDetail"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:text="Loading..." />
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

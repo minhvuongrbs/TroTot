@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
     public static final String TAG = LoginActivity.class.getSimpleName();
-    public static String SERVER="http://192.168.1.96/";
+    public static String SERVER="http://192.168.43.236/";
     private static String API="api/v1/login";
     private static String LINK = SERVER+API;
     public ProgressDialog mProgressDialog;

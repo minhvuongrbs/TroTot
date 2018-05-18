@@ -14,17 +14,26 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import trotot.dnvn.cndd.trotot.Activities.LoginActivity;
+import trotot.dnvn.cndd.trotot.Fragment.Menu4Fragment;
+import trotot.dnvn.cndd.trotot.Fragment.Menu5Fragment;
 import trotot.dnvn.cndd.trotot.Model.Account;
 import trotot.dnvn.cndd.trotot.Fragment.Menu1Fragment;
 import trotot.dnvn.cndd.trotot.Fragment.Menu2Fragment;
 import trotot.dnvn.cndd.trotot.Fragment.Menu3Fragment;
 
+import static trotot.dnvn.cndd.trotot.Activities.LoginActivity.SERVER;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private TextView mTextViewUsernameNaviHeader;
     private TextView mTextViewEmailNaviHeader;
+    private ImageView mImageView;
 
 
     @Override
@@ -52,19 +61,19 @@ public class MainActivity extends AppCompatActivity
         View headerView = navigationView.getHeaderView(0);
         mTextViewUsernameNaviHeader=headerView.findViewById(R.id.usernameNaviHeader);
         mTextViewEmailNaviHeader=headerView.findViewById(R.id.emailNaviHeader);
+        mImageView=headerView.findViewById(R.id.imageView);
 
         Intent intent=getIntent();
         SharedPreference sharedPreference=new SharedPreference(this);
         Account account=(Account) sharedPreference.getUserLogin();
 
-
         mTextViewEmailNaviHeader.setText(account.getEmail());
         mTextViewUsernameNaviHeader.setText(account.getUserName());
-        displayNavigation(R.id.nav_home);
+        Picasso.with(this).load(SERVER+account.getImage()).into(mImageView);
 
+        displayNavigation(R.id.nav_home);
         Log.d("test3","chạy hết create");
     }
-
 
 
     @Override
@@ -94,8 +103,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.logout) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
         Log.d("test6","chạy option item selected");
         return super.onOptionsItemSelected(item);
@@ -113,7 +122,6 @@ public class MainActivity extends AppCompatActivity
     private void displayNavigation(int id) {
 
         Fragment fragment;
-
         if (id == R.id.nav_home) {
             fragment=new Menu1Fragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -134,10 +142,16 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.content_main, fragment);
             ft.commit();
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_about) {
+            fragment=new Menu4Fragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_main, fragment);
+            ft.commit();
+        } else if (id == R.id.nav_support) {
+            fragment=new Menu5Fragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_main, fragment);
+            ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

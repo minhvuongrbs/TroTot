@@ -20,14 +20,14 @@ public class PostDetailAdapter extends FragmentStatePagerAdapter{
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                PostDetailFirstFragment tab1 = new PostDetailFirstFragment();
-                return tab1;
-            case 1:
                 PostDetailSecondFragment tab2 = new PostDetailSecondFragment();
                 return tab2;
-            case 2:
+            case 1:
                 PostDetailThirdFragment tab3 = new PostDetailThirdFragment();
                 return tab3;
+            case 2:
+                PostDetailFirstFragment tab1 = new PostDetailFirstFragment();
+                return tab1;
             default:
                 return null;
         }

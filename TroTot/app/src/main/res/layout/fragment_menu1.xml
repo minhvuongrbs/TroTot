@@ -17,19 +17,21 @@
             android:layout_height="50dp">
 
             <Spinner
-                android:id="@+id/spinner_location"
-                android:singleLine="true"
-                android:selectAllOnFocus="true"
-                android:text="Đà Nẵng"
-                android:layout_weight="2"
-                android:layout_width="0dp"
-                android:layout_height="50dp" />
-            <Spinner
-                android:layout_marginLeft="100dp"
                 android:id="@+id/spinner_rate"
                 android:singleLine="true"
                 android:text="Đà Nẵng"
-                android:layout_weight="2.5"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="50dp" />
+            <ImageView
+                android:padding="8dp"
+                android:layout_marginLeft="130dp"
+                android:id="@+id/btn_search"
+                android:scaleType="fitCenter"
+                android:src="@drawable/search"
+                android:singleLine="true"
+                android:selectAllOnFocus="true"
+                android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_height="50dp" />
         </LinearLayout>
