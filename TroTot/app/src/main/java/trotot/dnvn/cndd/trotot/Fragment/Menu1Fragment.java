@@ -98,6 +98,8 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setAdapter(mAdapter);
+        mAdapter.notifyDataSetChanged();
 
 
         mButtonPost.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +109,6 @@ public class Menu1Fragment extends Fragment implements AdapterView.OnItemSelecte
                 getActivity().startActivity(intent);
             }
         });
-
         return rootView;
     }
 
